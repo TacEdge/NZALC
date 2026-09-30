@@ -1,6 +1,6 @@
 # Lead Self Workbook Redesign — Phase 1: Development Architecture Audit
 
-**Status:** Phase 1 complete. Nothing here is a redesign; do not start Phase 2 until NZALC has worked through `07-decisions-required.md`.
+**Status:** Phase 1 complete; decisions reviewed 30 Sep 2026. Phase 2 has **not** begun. It is blocked only on the TAD training programme/timetable (see `07`). Current design position: `08-decision-log.md`, which supersedes docs 04 and 06 where they conflict.
 
 **Scope:** Reverse-engineer and audit the *Lead Self Leadership Development Workbook, NZ Army Recruit Training (TAD), Version April 2026* (91 PDF pages, 84 numbered pages) against its stated aim and Learning Outcomes. Test it against a proposed developmental spine and identify where Combat Mindset / Performance Under Pressure material could integrate.
 
@@ -14,7 +14,8 @@
 | 04 | [Proposed architecture](04-proposed-architecture.md) | How the existing content sits against the proposed spine (conceptual only) |
 | 05 | [CMC integration map](05-cmc-integration-map.md) | Where Combat Mindset / PUP concepts intersect existing content, strictly from supplied sources |
 | 06 | [Reflection and evidence system](06-reflection-and-evidence-system.md) | Whether the reflection tools form one system, and a proposed evidence trail |
-| 07 | [Decisions required](07-decisions-required.md) | What NZALC must decide before redesign, plus the **Phase 2 design brief** |
+| 07 | [Decisions required](07-decisions-required.md) | Status register (SETTLED / PROVISIONAL / OWNER INPUT / BLOCKING), assumptions, owners, plus the **Phase 2 design brief** |
+| 08 | [Decision log](08-decision-log.md) | Current design position, log of decisions, owner questions, minimum information for Phase 2 |
 
 ## Sources used
 
