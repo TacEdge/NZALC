@@ -76,7 +76,7 @@ It should progressively become **less of a classroom workbook and more of a simp
 ### PART 2 — MY LEAD SELF DEVELOPMENT
 
 **Used during:** the rest of TAD, driven by the recruit loop.
-**Proposed nature:** a **compact field development tool**, closer to a pocket journal than a workbook.
+**Nature:** a development tool optimised for **use, not completion**. **Its physical or digital form is unresolved** (§4). The contents below are functions, not a format.
 
 | Contains (function, not pages) | Used at | Recorded? |
 |---|---|---|
@@ -91,9 +91,26 @@ It should progressively become **less of a classroom workbook and more of a simp
 
 **Separate from both parts:** peer feedback sheets for the exercise rounds (so tearing them out doesn't destroy workbook pages; Phase 1 finding, D12).
 
+### Part 2 functional requirements (format-independent)
+
+*Added at Phase 2 review.* Whatever its eventual form, Part 2 must let the recruit **quickly**:
+
+| # | Requirement | Loop step |
+|---|---|---|
+| FR-1 | See their current development priority | REAPPLY (cue) |
+| FR-2 | Remember what behaviour they are trying to reapply | REAPPLY |
+| FR-3 | Capture meaningful evidence when required, and only then | FEEDBACK |
+| FR-4 | Conduct a very short reflection | REFLECT |
+| FR-5 | Receive and use peer and Section Commander feedback | FEEDBACK / REFLECT |
+| FR-6 | Update their priority | ADAPT |
+| FR-7 | Complete the major Exercise One / Exercise Two reviews | Major intensity |
+| FR-8 | Build their LDP from accumulated evidence | ADAPT (LDP) |
+
+**Design principle: optimise for USE, not completion.** Success means the tool is opened at the moments that matter, not that every page is filled in. Blank space is acceptable. Completion is not a measure.
+
 ---
 
-## 4. Format options for Part 2 (decision for Phase 3)
+## 4. Format options for Part 2 — UNRESOLVED
 
 | Option | Description | For | Against |
 |---|---|---|---|
@@ -103,7 +120,18 @@ It should progressively become **less of a classroom workbook and more of a simp
 | **D. Insert into an existing recruit notebook** | Part 2 as pages or a sleeve in something recruits already carry | Rides existing habit | Depends on what recruits carry; **TAD to confirm** |
 | **E. Digital** | Phone or app | Always on hand | Phone access in TAD is likely restricted; equity; **not recommended without TAD confirmation** |
 
-**Leaning:** **B or D**, both tested against H1–H7. The choice depends on the hypothesis check (09, P3-1) and on what recruits actually carry (TAD).
+**No option is preferred** (revised at Phase 2 review). A separate pocket booklet (B) is one option only. Continued use is the weakest part of the architecture (ST-5), and a new item recruits have to remember to carry could reproduce the same failure in a smaller format. The table above lists options so they can be tested, not ranked.
+
+**Before choosing a format, establish** (validation plan, `10`):
+
+- what recruits actually carry during TAD;
+- when they realistically have access to it;
+- what they currently do with the Lead Self workbook;
+- why they stop using it;
+- what Section Commanders currently use;
+- where a development prompt or priority would naturally live.
+
+The functional requirements (FR-1 to FR-8) can be developed in the meantime. The format follows the evidence.
 
 ---
 
@@ -118,4 +146,4 @@ It should progressively become **less of a classroom workbook and more of a simp
 - Because at each exercise their evidence is needed and is already there.
 - Because by march-out it shows them, in their own words and others', how they've changed.
 
-**Honest caveat.** This answer depends on the Section Commander actually asking (04) and on the format being carryable. Neither is guaranteed. ST-5 (08) is therefore marked **conditional**.
+**Honest caveat.** This answer depends on the Section Commander actually asking (04) and on the tool living somewhere the recruit actually has with them. Neither is guaranteed, and the reasons for current non-use are inferred, not user-tested. ST-5 (08) is therefore marked **conditional**, pending validation (`10`).

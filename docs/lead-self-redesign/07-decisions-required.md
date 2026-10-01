@@ -28,6 +28,8 @@ The register also shows whether each item must be resolved **before the final ar
 > - **D18** is superseded by the 08 §1.0 ownership model.
 > - **A2** is confirmed. **A3** is replaced. **R1** is largely mitigated. A1, A4 and A5 still stand.
 >
+> **Phase 2 review (1 Oct 2026):** the core architecture is provisionally accepted, pending lightweight user validation. HOLD before Phase 3. See `phase-2/09` and `phase-2/10`, and 08 log L24–L28.
+>
 > The sections below are kept as they were before this update, for traceability.
 
 ## Summary register

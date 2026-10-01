@@ -2,6 +2,8 @@
 
 *What NZALC must decide, confirm or validate before Phase 3 (detailed design of the recruit experience, the workbook and the T3 package). Phase 3 has not begun. Its scope and name are for NZALC to confirm.*
 
+**Updated 1 Oct 2026 after Phase 2 review.** Phase 2 is on **HOLD before Phase 3**, pending lightweight user validation (`10-validation-plan.md`).
+
 Statuses follow the Phase 1 register:
 
 - **SETTLED**
@@ -15,8 +17,8 @@ Statuses follow the Phase 1 register:
 
 | # | Decision | Recommendation | Status | Blocks Phase 3? |
 |---|---|---|---|---|
-| **A1** | Accept the core architecture: one loop turn inside the two days; one priority at a time; three loop intensities; five Section Commander minimum behaviours; Part 1 / Part 2 | Accept, subject to validation (P3-1, P3-2) | PROVISIONAL (for review) | **Yes**: Phase 3 builds on it |
-| **A2** | Accept the DT-1 results: dedicated input only for Value Adds, Identity vs Reputation, Comfort Zone, Feedback, P = P – I, and a mental-skills subset; everything else embedded or reference (06) | Accept. Revisit Conflict if Section Commanders report it as a frequent need | PROVISIONAL | No |
+| **A1** | **Core architecture.** Roles (recruit owner; Section Commander coach/observer/feedback source; buddy; TAD environment; workbook/tool for continuity and evidence; NZALC designer and T3 provider). Recruit loop. Loop experienced before it is named. Early Identity vs Reputation experience. One active priority at a time. Three intensities. Ex One / Ex Two as major evidence points (subject to confirming current TAD practice). Five Section Commander behaviours as the working minimum. Part 1 / Part 2 by function | **CORE ARCHITECTURE: PROVISIONALLY ACCEPTED, PENDING LIGHTWEIGHT USER VALIDATION.** Validation identifies adjustments; redesign only where evidence materially contradicts an assumption (`10` §6) | **PROVISIONAL** (accepted as working architecture) | **Yes**, until validation is complete |
+| **A2** | **Content placement rule (revised):** "No existing topic earns a standalone lesson by default. A topic receives deliberate instructional time only where recruits require knowledge, a model or a tool before they can meaningfully practise or apply the associated behaviour." Each topic gets one or more of: explicit instruction, activity, embedded concept/tool, debrief question, lens, reference, remove (06 §1) | Adopt the rule. The six strongest candidates for explicit instruction (Value Adds, Identity vs Reputation, Comfort Zone, Feedback, P = P – I, mental-skills subset) are **not locked**. Trust, Conflict, Judgement and Above/Below the Line remain **open** for explicit instruction | Rule: **SETTLED**. Topic results: **PROVISIONAL** | No |
 | **A3** | Proposed removals: Instruction Styles; repeated Lesson Reflection pages; repeated Value Add text; Value Add Review as a standalone repeated exercise | Accept removals 1–3. Hold 4 pending D7 | PROVISIONAL | No |
 | **A4** | The "When ___, I will ___" priority format | Accept as the recruit-facing format. It is consistent with the workbook's "identify situations" prompts; it is a design format, not doctrine | PROVISIONAL | No |
 | **A5** | Keep/Stop/Start only in LDPs (and optionally in the pressure debrief) | Accept, subject to D7 | PROVISIONAL | No |
@@ -25,19 +27,20 @@ Statuses follow the Phase 1 register:
 
 | # | Activity | Why | Owner | Blocks Phase 3? |
 |---|---|---|---|---|
-| **P3-1** | **Recruit-use discovery.** Short conversations with a few recent recruits and Section Commanders, plus a look at some used workbooks: when, if ever, was it opened after the Lead Self days, and why not? | ST-5 rests on hypotheses H1–H7 (05). Format and Part 2 design should follow evidence | NZALC (with TAD access) | **Recommended before format decision (B1)** |
-| **P3-2** | **Section Commander sense-check.** Test the five minimum behaviours, the coaching question and the feedback-round role with serving Section Commanders | ST-4 is conditional. Their view decides feasibility | NZALC / TAD | **Recommended** |
+| **P3-1** | **Recruit conversations** (3–5 recent recruits; R-1 to R-8 in `10`) | ST-5 rests on inferred hypotheses H1–H7 (05). Format and Part 2 design must follow evidence | NZALC (with TAD access) | **Yes**: part of A1 validation; required before B1 |
+| **P3-2** | **Section Commander conversations** (3–5 current/recent; SC-1 to SC-8 in `10`) | ST-4 is conditional. Their view decides feasibility and tests support vs administration (04 §2.1) | NZALC / TAD | **Yes**: part of A1 validation |
 | **P3-3** | **Pilot intent.** Decide whether the first redesigned delivery is run as a pilot with one intake, with a simple review at march-out | Lowest-risk route to test ST-4 and ST-5. Also aligns with CN rec. 7 and FP Phase 4 pilot intent | NZALC | No (plan in Phase 3) |
 
 ## 3. Product and format decisions
 
 | # | Decision | Options | Recommendation | Status |
 |---|---|---|---|---|
-| **B1** | **Part 2 format** | A: back of one book · B: separate pocket booklet · C: card + exercise pages · D: insert into an existing recruit notebook · E: digital (05 §4) | B or D, after P3-1. E not recommended without TAD confirmation | OWNER INPUT REQUIRED (TAD: what do recruits carry; phone access) |
+| **B1** | **Part 2 format** | A: back of one book · B: separate booklet · C: card + exercise pages · D: insert into something recruits already carry · E: digital (05 §4) | **UNRESOLVED. No option preferred.** Decide only after validation establishes what recruits carry, when they can reach it, and where a priority would naturally live. Functional requirements FR-1 to FR-8 (05) proceed meanwhile | **UNRESOLVED** |
 | **B2** | Peer feedback sheets kept separate from the workbook | Yes / no | Yes | PROVISIONAL (D12) |
 | **B3** | Privacy rule for the evidence thread and any section priority list held by the Section Commander | *mine / my buddy / my section / my Section Commander* | Priority known to buddy and Section Commander; evidence lines private unless shared; no staff checking | PROVISIONAL (D12) |
 | **B4** | **T3 package scope** as the second product (04 §6, T1–T10) | — | Design in Phase 3 alongside the recruit experience, not after it | PROVISIONAL |
 | **B5** | Section Commander job aid (one-page card) | Yes / no | Yes | PROVISIONAL |
+| **B6** | **Developmental feedback vs formal assessment**: can the same evidence serve both purposes without undermining psychological safety or feedback quality? (04 §5.1) | Assess LDP process quality only · keep development conversations unrecorded and assess specified artefacts · separate assessor from coach | **Not resolved.** Keep the distinction explicit in all design. Decide after D1/16 and Q15 | **UNRESOLVED** · OWNER INPUT REQUIRED |
 
 ## 4. Owner inputs still required
 
@@ -59,11 +62,9 @@ Statuses follow the Phase 1 register:
 
 | Blocker | Why |
 |---|---|
-| **A1** acceptance of the core architecture | Phase 3 builds on it |
+| **A1 validation** (P3-1, P3-2, per `10`) | A1 is provisionally accepted. It moves to SETTLED, or is adjusted, once the conversations are synthesised in `11-validation-findings.md` |
 
-Everything else can proceed on the stated recommendations.
-
-**Strongly recommended before the Part 2 format is chosen:** P3-1 (recruit-use discovery) and P3-2 (Section Commander sense-check). Without them, Phase 3 risks producing a better-designed workbook that still sits in a locker.
+Everything else can proceed on the stated recommendations. Without validation, Phase 3 risks producing a better-designed workbook that still sits in a locker.
 
 ## 6. Proposed shape of Phase 3 (for NZALC to confirm)
 

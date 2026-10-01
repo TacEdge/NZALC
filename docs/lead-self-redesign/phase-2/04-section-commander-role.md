@@ -33,11 +33,35 @@ The brief asked whether each candidate mechanism is actually required. Each is t
 | **Run additional Lead Self lessons** | Low marginal value | High | **Excluded** unless clearly necessary (OC-3) |
 | **Keep formal records of coaching conversations** | Low for development; unclear purpose | High | **Excluded** (unless D1/16 assessment requires something) |
 
-### The Section Commander minimum, in one line
+### The Section Commander minimum, in one line (working minimum, pending validation)
 
 > **Know each recruit's priority. Ask about it at natural moments. Give one honest observation at each exercise. Run the two exercise feedback rounds. Use the language.**
 
 ---
+
+### 2.1 Test: supports development, or administers the system?
+
+*Added at Phase 2 review.*
+
+| | **Supports the recruit's development** (favoured) | **Administers the Lead Self system** (avoid) |
+|---|---|---|
+| Nature | Part of how they already lead the section | A separate task done for Lead Self's sake |
+| Trigger | Something that happened in training | A schedule, a form or a deadline |
+| Output | A conversation, an observation, a question | A completed page, a signature, a record |
+| Who benefits | The recruit, now | The system's paperwork |
+| Feels like | "That's just good section leadership" | "Another thing NZALC wants" |
+
+Each working-minimum behaviour, tested:
+
+| Behaviour | Already part of normal Section Commander leadership? | Supports or administers? | Watch-point |
+|---|---|---|---|
+| Know each recruit's priority | Partly. Section Commanders already know their recruits' strengths and weaknesses | **Supports** | Becomes administration if it turns into a list the Section Commander must maintain and report. Any list is their own aid, optional |
+| Ask about it at natural moments | **Yes**: questioning and coaching during or after activity | **Supports** | Becomes administration if scheduled ("priority checks every Thursday") |
+| One honest observation at each exercise | **Yes**: observation and feedback are core section leadership | **Supports** | Becomes administration if it must be written on a form for each recruit |
+| Run the Ex One / Ex Two feedback rounds | **Likely**: if this replaces existing post-exercise AAR/feedback (confirm Q12) | **Supports**, *if* it replaces; **administers**, if it adds a parallel process | **The highest-risk behaviour.** Validation must establish current practice (`10`) |
+| Use the language | **Yes**: changes words, not workload | **Supports** | — |
+
+**Design aim:** the system stays alive through **normal Section Commander behaviours** (observation, feedback, questioning, AAR/debrief, coaching). Lead Self supplies the *language and focus* for those behaviours, not extra tasks. If validation shows any of the five feels like administration to Section Commanders, it is redesigned or dropped.
 
 ## 3. Coaching question bank (illustrative; finalised in Phase 3)
 
@@ -83,6 +107,26 @@ Short and open. Usable in passing.
 | **Turnover / posting of Section Commanders mid-course** | Continuity breaks | The recruit's priority and evidence live with the recruit (workbook), so a new Section Commander can pick up with one question. **TAD to confirm frequency** |
 
 ---
+
+### 5.1 Developmental feedback vs formal assessment — UNRESOLVED
+
+*Added at Phase 2 review. The risk is preserved here, not resolved.*
+
+| | **Developmental feedback** | **Formal assessment / evidence of achieving the LO** |
+|---|---|---|
+| Purpose | Help the recruit see and improve their behaviour | Determine whether LO 1.1–1.3 have been achieved (PL 1) |
+| Primary audience | The recruit | The training system |
+| Tone | Honest, specific, low-stakes, forward-looking | Judged against a standard |
+| Examples in this architecture | Day 1 buddy and Section Commander observations; everyday questions; checkpoint lines; exercise feedback rounds | To be determined (D1/16, O7). Candidates: Day 2 first priority; post-Ex One LDP; final LDP |
+| Risk if blurred | Recruits give safe answers, choose safe priorities, or hide development areas; peer feedback softens | Evidence becomes performative rather than real |
+
+**Open question for later:** can the same evidence serve both purposes without undermining psychological safety or feedback quality? Possible approaches to evaluate later, none recommended yet:
+
+- assess only the *quality of the LDP process* (evidence cited, behaviour observable, review completed), not the content of the feedback;
+- keep developmental conversations unrecorded and assess only specified artefacts;
+- separate the assessor from the coach where possible.
+
+This depends on D1/16 and Q15 (whether Section Commanders formally assess their recruits).
 
 ## 6. What the NZALC T3 package must give Section Commanders
 

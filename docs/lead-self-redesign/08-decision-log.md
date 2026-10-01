@@ -175,6 +175,11 @@ This is **not** yet a two-day lesson programme, and content sequencing is not re
 | **L21** | 1 Oct 2026 | Ownership model replaced (§1.0). Section Commanders are coaches, not workbook administrators | SETTLED | **D18** | Project lead |
 | **L22** | 1 Oct 2026 | Two products: recruit experience/workbook and the NZALC T3 package for Section Commanders | SETTLED | Scope | Project lead |
 | **L23** | 1 Oct 2026 | **Phase 2 authorised** (Lead Self Experience Architecture). Outputs in `phase-2/` | SETTLED | — | Project lead |
+| **L24** | 1 Oct 2026 | Phase 2 review: **A1 core architecture provisionally accepted, pending lightweight user validation.** HOLD before Phase 3. Validation adjusts; redesign only on material contradiction | PROVISIONAL | `phase-2/09` A1; `phase-2/10` | Project lead |
+| **L25** | 1 Oct 2026 | Content rule revised: no topic earns a standalone lesson by default; deliberate instruction only where recruits need knowledge, a model or a tool before they can practise. The six explicit-instruction candidates are not locked; Trust, Conflict, Judgement and Above/Below the Line remain open | Rule SETTLED; results PROVISIONAL | Supersedes "only six topics need classroom time" (`phase-2/06`) | Project lead |
+| **L26** | 1 Oct 2026 | Part 2 physical/digital format **unresolved**, with no option preferred. Functional requirements FR-1 to FR-8; optimise for use, not completion | SETTLED (that it is unresolved) | `phase-2/05`, `09` B1 | Project lead |
+| **L27** | 1 Oct 2026 | Section Commander must *support development*, not *administer the system*; tested per behaviour | SETTLED (principle) | `phase-2/04` §2.1 | Project lead |
+| **L28** | 1 Oct 2026 | Developmental feedback distinguished from formal assessment; whether one piece of evidence can serve both is **unresolved** | UNRESOLVED | `phase-2/04` §5.1, `09` B6; D1/16 | Project lead |
 | L18 | 1 Oct 2026 | TAD timetable **no longer blocks the start of Phase 2** conceptual architecture. It is required before locking the post-NZALC touchpoints and the final end-to-end journey | SETTLED | Revises §4 of the 30 Sep log ("only genuine blocker") | Project lead |
 
 ---

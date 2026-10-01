@@ -14,7 +14,7 @@
 | P2 | **The loop turns once inside the two days.** Day 1 produces feedback and an insight; Day 2 tests that insight under pressure, with evidence | Recruits leave having *done* the method (01, E5) |
 | P3 | **Deliverable by a Corporal.** Short concept inputs, clear activity instructions, observation prompts and debrief questions. No reliance on advanced facilitation skill | Delivered by Section Commanders, not NZALC instructors (OC-2) |
 | P4 | **The section is the unit.** Recruits work with their real section and their real Section Commander | Feedback and commitments carry straight into the rest of TAD. The relationships the loop depends on start here |
-| P5 | **Concepts are lenses, not lectures.** Most existing topics show up as a question, a prompt or a debrief lens (06) | Protects the two days from cramming (risk R4) |
+| P5 | **No standalone lesson by default.** Topics get deliberate instruction only where recruits need knowledge, a model or a tool before they can practise. Otherwise they show up as an activity, debrief question, lens or reference (06 §1.1) | Protects the two days from cramming (risk R4) without starving recruits of models they need |
 | P6 | **Low stakes, high specificity.** Feedback is about one observed behaviour, not about the person | Builds the habit safely in week one |
 | P7 | **Every block produces something the recruit carries forward**, or prepares for something that does | ST-3 |
 
@@ -75,9 +75,13 @@ If time is short, protect 1D, 1E and 2C. Concept blocks compress; these do not.
 
 ---
 
-## 4. What deliberately does not get classroom time
+## 4. Deliberate instruction within the two days
 
-These topics contribute as lenses, prompts or reference instead (full test in 06): Conflict, Change, Team Development (as a separate lesson), Culture theory (Schein), decision models (Five-Step, OODA), risk matrix, functional leadership, the full Leadership Framework tables, Instruction Styles, mental-health continuum detail. The mental-health pathway itself is covered (2G) as duty of care.
+*Revised at Phase 2 review.* **No topic earns a standalone lesson by default.** A topic gets deliberate instructional time only where recruits need knowledge, a model or a tool before they can meaningfully practise the behaviour (06 §1.1).
+
+- **Strongest current candidates for explicit instruction (PROVISIONAL):** Value Adds; Identity vs Reputation; Comfort Zone; Feedback/DEB/DESC; P = P – I; mental skills (subset). The concept inputs in blocks 1A, 1B, 1E, 2A and 2B carry these.
+- **Open, still under consideration:** Trust, Conflict, Judgement (decision model) and Above/Below the Line may also need short explicit inputs, inside the blocks above or alongside them. **They are not locked out.**
+- The mental-health pathway is covered in 2G as duty of care.
 
 ---
 

@@ -37,7 +37,7 @@ On Day 1, in week 1, each recruit writes an identity statement, is observed in a
 
 **Verdict: PASS, with two justified exceptions.**
 
-Every retained activity was tested (06 §2). Activities that failed have moved to reference or prompt, or are proposed for removal.
+Every retained activity was tested (06 §2). Activities that failed have moved to reference or prompt, or are proposed for removal. Topic treatments remain PROVISIONAL under the revised content rule (06 §1.1).
 
 | Justified exception | Reason |
 |---|---|
@@ -59,7 +59,7 @@ Every retained activity was tested (06 §2). Activities that failed have moved t
 | The language reinforcement costs nothing extra | **Coach vs assessor tension** (Q15) may reduce effectiveness |
 | | Section size and Section Commander turnover are unknown |
 
-**Conditions to pass:** T3 builds understanding, not just delivery. The Ex One/Two rounds replace rather than add. Psychological safety is addressed. Validate with serving Section Commanders (09, P3-2).
+**Conditions to pass:** T3 builds understanding, not just delivery. The Ex One/Two rounds replace rather than add. Psychological safety is addressed. The five behaviours pass the support-vs-administer test (04 §2.1). **Validation:** Section Commander conversations SC-1 to SC-8 (`10`).
 
 ### ST-5 — Is there a compelling reason for the recruit to use the development tool after Day 2?
 
@@ -69,11 +69,11 @@ Every retained activity was tested (06 §2). Activities that failed have moved t
 |---|---|
 | A social trigger: the Section Commander asks about the priority (05 §1.2) | It works only if Section Commanders actually ask (links to ST-4) |
 | Performance value: tools and priority before hard training; a debrief after | **The causes of current non-use are hypotheses (H1–H7), not findings** |
-| Exercise reviews need evidence that is already in Part 2 | Format not chosen. A large book will likely repeat the locker problem (H3) |
+| Exercise reviews need evidence that is already in Part 2 | Format deliberately unresolved. A large book may repeat the locker problem (H3), and so might a new small item recruits must remember to carry |
 | Visible progress at march-out | Recruits' time and energy in TAD are very limited |
 | Very low recording demand (one line per checkpoint) | |
 
-**Conditions to pass:** check the hypotheses with recruits and Section Commanders. Choose a carryable Part 2 format. Ensure the Section Commander question actually happens. Ideally pilot with one intake (09).
+**Conditions to pass:** check the hypotheses with recruits and Section Commanders. Place Part 2 wherever recruits actually have access (format unresolved; FR-1 to FR-8 in 05). Ensure the Section Commander question actually happens. Ideally pilot with one intake (09). **Validation:** recruit conversations R-1 to R-8 (`10`).
 
 ---
 
@@ -98,4 +98,4 @@ The architecture meets the three primary tests by design. Its two weakest points
 1. whether Section Commanders take on the coaching role (ST-4);
 2. whether recruits find the tool worth using (ST-5).
 
-Neither can be settled by more design work. Both need contact with real Section Commanders and recruits. The recommendation (09) is a short discovery and validation step before or at the start of Phase 3, and ideally a pilot with one intake.
+Neither can be settled by more design work. Both need contact with real Section Commanders and recruits. A1 is therefore **provisionally accepted, pending lightweight user validation** (`10`), with a pilot intake recommended once Phase 3 designs are ready.

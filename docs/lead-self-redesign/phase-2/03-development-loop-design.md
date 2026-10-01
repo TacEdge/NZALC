@@ -55,7 +55,7 @@ The loop runs at different intensities, so that most turns cost almost nothing a
 | FEEDBACK | Notices the result; may ask buddy "how did I go?" | Mentions it if they saw it (optional) | *Occasionally:* "You said your priority was X. How did you go today?" | — |
 | REFLECT | Thinks it through, in the answer to the question if one was asked | — | Listens; may add one observation | — |
 | ADAPT | Usually keeps going | — | — | — |
-| REAPPLY | Tries again next time | — | — | Priority visible (card/front of Part 2) as a cue |
+| REAPPLY | Tries again next time | — | — | Priority visible wherever Part 2 lives (format unresolved) as a cue |
 
 ### 4.2 Checkpoint intensity (TIMETABLE DEPENDENT placement)
 
@@ -78,7 +78,7 @@ The loop runs at different intensities, so that most turns cost almost nothing a
 | FEEDBACK (RECOVER) | Self-assessment (DEB/DESC); receives peer and Section Commander feedback in the section round | Give DEB/DESC feedback (strength + development area) | **Facilitates the feedback round**; gives one observation per recruit | Self-assessment; peer feedback summary |
 | REFLECT | Compares self-view, peer view and the Section Commander's view; reviews the previous priority: *did I do it, what does the evidence say?* | — | Asks one or two questions if the recruit is stuck | Exercise review page |
 | ADAPT | Writes or updates the LDP: priority, evidence, strategy (Keep/Stop/Start for a development area), situations, "how will I know?" | — | Supports, doesn't write it (OC-4) | **LDP** |
-| REAPPLY | Carries the new or confirmed priority into training | — | Notes it so they can ask about it | Priority card updated |
+| REAPPLY | Carries the new or confirmed priority into training | — | Notes it so they can ask about it | Priority updated in Part 2 |
 
 ---
 
