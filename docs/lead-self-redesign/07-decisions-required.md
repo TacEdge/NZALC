@@ -13,6 +13,23 @@
 
 The register also shows whether each item must be resolved **before the final architecture is locked**. Under DC-1 that is a separate gate from starting Phase 2.
 
+> **Update, 1 Oct 2026 (operational clarification; see 08 §1.0).**
+> - The two days fall in **week 1, before Ex One**.
+> - They are **delivered by Section Commanders**, who are trained by NZALC through Train the Trainer (T3) and **remain with their recruits** through TAD.
+> - The recruit owns the LDP.
+> - NZALC has freedom to re-sequence the two days.
+> - The workbook typically goes unused after the two days.
+>
+> **DR-5 is revised** to *recruit-owned, Section Commander-supported*. **Phase 2 is authorised** and in progress in [`phase-2/`](phase-2/).
+>
+> Effect on this register:
+> - **D2/4** is answered for timing and freedom. Only the later touchpoints still need the timetable.
+> - **D9/15** is answered for delivery and support. It remains open for confirming that Section Commanders facilitate the Ex One/Two rounds, and for onward handover.
+> - **D18** is superseded by the 08 §1.0 ownership model.
+> - **A2** is confirmed. **A3** is replaced. **R1** is largely mitigated. A1, A4 and A5 still stand.
+>
+> The sections below are kept as they were before this update, for traceability.
+
 ## Summary register
 
 | Decision | Subject | Status | Owner | Blocks Phase 2 start? | Needed before architecture lock? |

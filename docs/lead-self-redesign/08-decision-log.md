@@ -17,7 +17,34 @@
 
 ## 1. Current design position (as of 1 Oct 2026)
 
-### 1.1 Delivery constraint and the design problem — DC-1 (SETTLED)
+### 1.0 Operational clarification (1 Oct 2026, supersedes earlier DC-1 assumptions) — SETTLED
+
+These are authoritative design constraints, confirmed by the project lead:
+
+| # | Constraint |
+|---|---|
+| OC-1 | **Timing.** The two Lead Self days occur in the **first week of TAD, before Exercise One** |
+| OC-2 | **Delivery.** NZALC instructors do not normally deliver the two days to recruits. NZALC delivers Lead Self as a **Train the Trainer (T3)** package to TAD staff before the course. The recruit-facing two days are then delivered by the recruits' **Section Commanders (Corporals)** |
+| OC-3 | **Continuity.** Those Section Commanders remain with their recruits through TAD. They are the logical source of lightweight coaching, observation and developmental support after the two days. Additional formal Lead Self lessons for Section Commanders are not designed unless clearly necessary; reinforcement is integrated into their normal leadership of the section |
+| OC-4 | **LDP ownership.** The recruit develops and owns their LDP, with support from their Section Commander. The Section Commander does not own it |
+| OC-5 | **Design freedom.** No known restriction on changing the sequence or content within the two-day package. Existing workbook chapter order is **not** a constraint. Doctrine, LOs and confirmed LDS requirements remain constraints |
+| OC-6 | **Workbook use.** Recruits are intended to keep and use the workbook throughout TAD. **In practice they typically do not.** This is treated as a major design problem, not a content problem |
+
+**Ownership model (replaces §1.2):**
+
+| Party | Role |
+|---|---|
+| **Recruit** | Owner of their development |
+| **Section Commander** | Coach, observer and feedback source. **Not** a workbook administrator |
+| **Workbook** | Development tool and evidence thread |
+| **TAD training** | The environment in which behaviour is practised, pressured and reapplied |
+| **NZALC** | Designer of the system, and developer of the Section Commanders through T3 |
+
+**DC-1 restated.** The two days are NZALC-*designed* and Section Commander-*delivered*. "Without further NZALC instruction" still holds. "Without an instructor present" no longer does (see DR-5).
+
+**Consequence: two products.** The redesign eventually covers both the recruit experience/workbook **and** the NZALC T3 package for Section Commanders.
+
+### 1.1 Delivery constraint and the design problem — DC-1 (SETTLED; delivery model clarified in §1.0)
 
 > **DC-1.** NZALC has **two days** of direct Lead Self delivery at TAD. The design must establish a development process capable of continuing beyond those two days **without relying on further NZALC instruction**.
 
@@ -31,7 +58,7 @@ The workbook supports those two days. Lead Self development continues through th
 
 The Phase 1 audit assumed the workbook was used across a course of lessons. Its content findings still stand. Its sequencing assumptions are superseded by DC-1.
 
-### 1.2 Ownership model (PROVISIONAL)
+### 1.2 Ownership model (SUPERSEDED by §1.0)
 
 | Party | Owns / provides |
 |---|---|
@@ -39,7 +66,7 @@ The Phase 1 audit assumed the workbook was used across a course of lessons. Its 
 | **TAD** | The ongoing training environment in which recruits experience, practise, perform under pressure, work with others, receive consequences and feedback, reapply behaviours, and develop through subsequent training and exercises |
 | **The workbook** | Continuity between the two-day NZALC intervention and the recruit's subsequent TAD experience. It should progressively become less of a classroom workbook and more of a simple personal development tool |
 
-**Assumption (until confirmed by TAD):** TAD instructors are **not** available to deliver additional Lead Self lessons or administer additional NZALC processes. After the two days, the development process must be **recruit-run and peer-supported**, attached to activity TAD already conducts.
+**Superseded assumption (see §1.0):** TAD instructors are **not** available to deliver additional Lead Self lessons or administer additional NZALC processes. After the two days, the development process must be **recruit-run and peer-supported**, attached to activity TAD already conducts.
 
 ### 1.3 Three structures, connected, not combined (SETTLED, unchanged)
 
@@ -116,7 +143,7 @@ This is **not** yet a two-day lesson programme, and content sequencing is not re
 | **DR-2** | **Early Identity vs Reputation evidence.** An early, low-stakes feedback point. Under DC-1, the intent is to place it within Day 1 | **SETTLED** (requirement); placement PROVISIONAL |
 | **DR-3** | Ex One and Ex Two remain the major evidence points | **SETTLED** |
 | **DR-4** | **No new administrative burden.** Between-exercise mechanisms attach to existing TAD activity (e.g. a short buddy conversation) | **SETTLED** (principle) |
-| **DR-5** | **Self-sustaining after NZALC.** After the two days, every workbook process must be usable by the recruit and their peers without an instructor present, unless TAD confirms otherwise | **SETTLED** (follows DC-1) |
+| **DR-5** | **Recruit-owned, Section Commander-supported** (revised 1 Oct 2026). After the initial two days, the recruit increasingly owns their development, with their Section Commander providing lightweight coaching, observation and feedback at appropriate points. *(Replaces: "usable… without an instructor present".)* | **SETTLED** |
 | **DT-1** | **Topic test (Phase 2).** Existing subjects (Trust, Conflict, Judgement, Team Development, Culture, Intent, Change, Resilience, Above/Below the Line, Comfort Zone) do **not** automatically survive as standalone lessons. Each is tested in Phase 2 as a possible concept, tool, lens, activity, prompt or supporting reference within the wider journey. **Nothing is removed or merged yet** | **SETTLED** (as a Phase 2 test) |
 | **ST-3** | **Experience test (Phase 2 success test 3).** Every workbook activity either prepares the recruit for an experience, helps them perform through an experience, or helps them extract development from an experience. Otherwise it needs a clear justification for remaining | **SETTLED** |
 
@@ -143,6 +170,11 @@ This is **not** yet a two-day lesson programme, and content sequencing is not re
 | L15 | 1 Oct 2026 | Emerging two-part workbook: Part 1 *My Lead Self Foundation*, Part 2 *My Lead Self Development* | PROVISIONAL | Doc 04 §5 options | Project lead |
 | L16 | 1 Oct 2026 | DT-1 topic test: existing subjects tested in Phase 2 as concepts, tools, lenses, activities, prompts or reference. Nothing removed or merged yet | SETTLED (as test) | **D11**; doc 02 classifications become inputs to DT-1, not final | Project lead |
 | L17 | 1 Oct 2026 | ST-3 experience test added as Phase 2 success test 3 | SETTLED | Phase 2 brief | Project lead |
+| **L19** | 1 Oct 2026 | Operational clarifications OC-1 to OC-6: week 1 before Ex One; T3 → Section Commanders deliver; Section Commanders remain; recruit owns LDP; freedom to re-sequence; workbook typically unused | SETTLED | Partly answers **D2/4** (timing, freedom) and **D9/15** (who delivers and supports); confirms A2; replaces A3; largely mitigates R1 | Project lead |
+| **L20** | 1 Oct 2026 | **DR-5 revised:** recruit-owned, Section Commander-supported, replacing "without an instructor present" | SETTLED | DR-5 | Project lead |
+| **L21** | 1 Oct 2026 | Ownership model replaced (§1.0). Section Commanders are coaches, not workbook administrators | SETTLED | **D18** | Project lead |
+| **L22** | 1 Oct 2026 | Two products: recruit experience/workbook and the NZALC T3 package for Section Commanders | SETTLED | Scope | Project lead |
+| **L23** | 1 Oct 2026 | **Phase 2 authorised** (Lead Self Experience Architecture). Outputs in `phase-2/` | SETTLED | — | Project lead |
 | L18 | 1 Oct 2026 | TAD timetable **no longer blocks the start of Phase 2** conceptual architecture. It is required before locking the post-NZALC touchpoints and the final end-to-end journey | SETTLED | Revises §4 of the 30 Sep log ("only genuine blocker") | Project lead |
 
 ---
@@ -154,8 +186,10 @@ This is **not** yet a two-day lesson programme, and content sequencing is not re
 | Q1 | Can we have the current TAD training programme and timetable: when the two NZALC days fall, Ex One, Ex Two, field and other pressured activity, existing debriefs/AARs, and march-out? | TAD | D2/4 | Locking post-NZALC touchpoints and the final journey |
 | Q2 | Where do the two NZALC days sit within TAD? Is their position fixed? | TAD | D2/4 | Locking the final journey |
 | Q3 | Where in existing TAD training could a short reapply-and-evidence check-in attach without new burden (section debriefs, AARs, buddy system)? | TAD | D17 | Locking touchpoints |
-| **Q12** | **Who currently facilitates the post-Exercise One and Two self/peer feedback rounds ("hot seat") and the LDPs (workbook Ch 13) if NZALC is present for only two days?** | TAD / NZALC | D9/15, DR-3 | Locking the final architecture. **High priority** (see risk R1 in `07`) |
-| **Q13** | **Are TAD staff available for any Lead Self touchpoint after the two days (even five minutes at an existing debrief)? The current assumption is no** | TAD | D9/15 | Locking touchpoints |
+| Q12 | ~~Who facilitates the post-exercise feedback rounds?~~ **Answered in part (OC-2/OC-3):** Section Commanders are the logical facilitators. Confirm they currently run the Ex One / Ex Two rounds | TAD | D9/15, DR-3 | Locking the final architecture |
+| Q13 | ~~Are TAD staff available after the two days?~~ **Answered (OC-3):** Section Commanders remain and provide lightweight support | — | D9/15 | — |
+| Q14 | How long is the NZALC T3 package with Section Commanders, and could it change? | NZALC / TAD | Phase 3 (T3 product) | Phase 3 |
+| Q15 | Do Section Commanders also formally assess their recruits during TAD? (This affects how safe feedback from the Section Commander feels) | TAD | Phase 3 | Phase 3 |
 | Q4 | How are LO 1.1–1.3 assessed at PL 1? Is assessment completed within the two days, or does it depend on the pre-march-out LDP? | Training design / COG 1 owner | D1/16 | Locking the final architecture |
 | Q5 | Are the NZDDP 0.06 references, Value Add text and Behaviour Statements current for 2026? | Doctrine owner | D1/16 | Phase 4 text reuse |
 | Q6 | Are DEB/DESC, Keep/Stop/Start, Strength/Development Area rating, SSR and the hot-seat round LDS-standard tools? What was the second "Lesson Reflection" page for? | ELDA / Tony | D7, D8 | Locking the final architecture |
