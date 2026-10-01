@@ -1,6 +1,6 @@
 # Lead Self Workbook Redesign — Phase 1: Development Architecture Audit
 
-**Status:** Phase 1 complete (decision record last updated 1 Oct 2026). **Phase 2 is authorised and in progress: see [`phase-2/`](phase-2/).** The current design position is in `08-decision-log.md`, §1.0 first. Docs 01–06 are preserved as the historical audit record; where they conflict with 08, 08 wins.
+**Status:** Phase 1 complete. Phase 2 architecture and concept demonstrator **provisionally accepted, pending blind user validation** (`phase-2/10-validation-plan.md`; status in `phase-2/09` §0). Phase 3 not started. The current design position is in `08-decision-log.md`, §1.0 first. Docs 01–06 are preserved as the historical audit record; where they conflict with 08, 08 wins.
 
 **Scope:** Reverse-engineer and audit the *Lead Self Leadership Development Workbook, NZ Army Recruit Training (TAD), Version April 2026* (91 PDF pages, 84 numbered pages) against its stated aim and Learning Outcomes. Test it against a proposed developmental spine and identify where Combat Mindset / Performance Under Pressure material could integrate.
 

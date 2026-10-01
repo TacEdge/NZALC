@@ -4,6 +4,31 @@
 
 **Updated 1 Oct 2026 after Phase 2 review.** Phase 2 is on **HOLD before Phase 3**, pending lightweight user validation (`10-validation-plan.md`).
 
+## 0. Current status (concept demonstrator review, 1 Oct 2026)
+
+| Item | Status |
+|---|---|
+| Concept demonstrator (`../concept-prototype/`) | **Reviewed by CI NZALC.** Product direction **PROVISIONALLY ACCEPTED, PENDING USER VALIDATION**. No material architectural concerns identified. Not a production artefact; no further refinement at this stage |
+| A1 core architecture | Unchanged: **provisionally accepted, pending lightweight user validation** |
+| Next gate | Blind validation per `10`: minimum 3 recent recruits and 3 current/recent TAD Section Commanders. Recruits see neither prototype nor architecture; Section Commanders see only the five behaviours, at SC-7 |
+| After validation | `11-validation-findings.md`: analysis against AS-1 to AS-10 and the §6 thresholds; re-score ST-4 and ST-5; supporting and challenging evidence; adjustments; any redesign trigger; recommendation on A1 (ACCEPT / ACCEPT WITH ADJUSTMENTS / REOPEN). No A1 recommendation before the evidence is provided |
+| Phase 3 gate | Opens only if A1 is accepted or accepted with adjustments. Phase 3 question: *exactly what products, activities, tools and facilitator resources do we build?* **Not started** |
+
+**Retained for validation** (concepts confirmed by the demonstrator review):
+
+- the two-day Foundation experience;
+- recruits experiencing the development loop before it is named;
+- Identity vs Reputation becoming experiential;
+- one active development priority at a time;
+- deliberate reapplication under pressure;
+- EXPERIENCE → FEEDBACK → REFLECT → ADAPT → REAPPLY;
+- the transition from the two-day Foundation into ongoing TAD development;
+- the roles: Recruit = owner; Section Commander = coach / observer / feedback source; Buddy = peer evidence / feedback; TAD training = development environment; NZALC = system designer and Train the Trainer provider;
+- the Part 1 / Part 2 functional distinction;
+- optimise for use, not completion.
+
+**Explicitly NOT settled by the demonstrator review:** final Part 2 format; final Day 1 activity; final Day 2 pressure activity; final wording of the development priority mechanism; exact checkpoint frequency or placement; exact Section Commander intervention frequency; final assessment/evidence relationship; final content allocation; final visual design. These remain as recorded below (A2–A5, B1–B6, O1–O11).
+
 Statuses follow the Phase 1 register:
 
 - **SETTLED**

@@ -1,6 +1,6 @@
 # Phase 2 — Lead Self Experience Architecture
 
-**Status:** Reviewed 1 Oct 2026. Core architecture **provisionally accepted, pending lightweight user validation** (`10`). **HOLD before Phase 3.** Not a workbook design, not visual design, not a timetable.
+**Status:** Reviewed 1 Oct 2026. Core architecture **provisionally accepted, pending lightweight user validation** (`10`). Concept demonstrator (`../concept-prototype/`) reviewed by CI NZALC: product direction **provisionally accepted, pending the same validation** (09 §0). **HOLD before Phase 3.** Not a workbook design, not visual design, not a timetable.
 
 **Central question.** What must happen during the two Section Commander-delivered Lead Self days in Week 1 to start a development process that recruits can continue through TAD, supported by their Section Commander? And how does that process stay alive after Day 2 without becoming extra administration?
 
