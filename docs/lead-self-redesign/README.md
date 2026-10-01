@@ -16,6 +16,7 @@
 | 06 | [Reflection and evidence system](06-reflection-and-evidence-system.md) | Whether the reflection tools form one system, and a proposed evidence trail |
 | 07 | [Decisions required](07-decisions-required.md) | Status register (SETTLED / PROVISIONAL / OWNER INPUT / BLOCKING), assumptions, owners, plus the **Phase 2 design brief** |
 | 08 | [Decision log](08-decision-log.md) | Current design position, log of decisions, owner questions, minimum information for Phase 2 |
+| — | [Concept prototype](concept-prototype/) | Clickable HTML demonstrator of the recruit experience implied by the frozen Phase 2 architecture (not Phase 3; decides nothing) |
 
 ## Sources used
 

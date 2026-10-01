@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Lead Self Journey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: one moment at a time, full-width, with a fixed journey strip on top and a fixed nav bar below.
+   Palette: NZ Army tokens from the PUP repo (swamp, kawakawa, waiouru, moawhango, NZDF red). */
+:root{
+  --paper:#FFFFFF;
+  --paper-2:#F1F2EA;        /* moawhango, lightened */
+  --line:#CDD2B7;           /* moawhango */
+  --ink:#002516;            /* swamp */
+  --ink-2:#3F4F43;
+  --muted:#6F7A6B;
+  --olive:#3A4B00;          /* kawakawa */
+  --olive-soft:#E4E8CF;
+  --sand:#A89662;           /* waiouru */
+  --sand-soft:#EFE9D6;
+  --red:#C62026;            /* NZDF red */
+  --red-soft:#F8E3E4;
+  --display:"Barlow Condensed","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --body:"Barlow","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+input,textarea{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:1;margin:0;text-wrap:balance;letter-spacing:.01em}
+h1{font-size:clamp(2.6rem,7vw,4.6rem);font-weight:800}
+h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:800}
+h3{font-size:1.25rem;font-weight:700;letter-spacing:.03em}
+p{margin:0}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;color:var(--olive)}
+.lede{font-size:1.2rem;max-width:36ch;color:var(--ink-2)}
+.small{font-size:.92rem;color:var(--muted)}
+
+/* ---- Journey strip ---- */
+.strip{position:fixed;top:0;left:0;right:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);padding:0 16px;padding-top:env(safe-area-inset-top,0px)}
+.strip-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:14px;height:56px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:.95rem;white-space:nowrap}
+.brand i{display:inline-block;width:10px;height:22px;background:var(--red)}
+.phases{display:flex;gap:4px;flex:1;min-width:0}
+.phase{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px;font-family:var(--display);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.phase b{height:4px;background:var(--line);display:block;border-radius:2px}
+.phase.on{color:var(--ink)}
+.phase.on b{background:var(--olive)}
+.phase.done b{background:var(--sand)}
+.phase span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tools{display:flex;gap:6px}
+.tog{border:1px solid var(--line);background:var(--paper);border-radius:4px;padding:5px 9px;font-family:var(--display);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.tog[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tog.ev[aria-pressed="true"]{background:var(--sand);border-color:var(--sand);color:var(--ink)}
+@media (max-width:720px){.phases{display:none}.brand span{display:none}}
+
+/* ---- Moments ---- */
+main{padding:90px 16px 110px}
+.moment{display:none;max-width:1080px;margin:0 auto}
+.moment.on{display:block}
+.head{display:grid;gap:10px;margin-bottom:34px}
+.head .where{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pill{display:inline-block;font-family:var(--display);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 9px;border-radius:3px;background:var(--olive-soft);color:var(--olive)}
+.pill.day2{background:var(--sand-soft);color:#6E5F2E}
+.pill.p2{background:var(--ink);color:#fff}
+.pill.q{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:820px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.panel{background:var(--paper-2);padding:22px;min-width:0;align-content:start}
+.panel.olive{background:var(--olive-soft)}
+.panel.sand{background:var(--sand-soft)}
+.panel.ink{background:var(--ink);color:#fff}
+.panel.ink .eyebrow{color:#C9D3B0}
+.panel.ink .small{color:#B9C4B4}
+.stack{display:grid;gap:12px;align-content:start}
+.rule{border:0;border-top:3px solid var(--red);width:64px;margin:0}
+.big{font-family:var(--display);font-weight:700;font-size:1.6rem;line-height:1.1;text-transform:none;letter-spacing:0}
+.qs{display:grid;gap:8px;margin-top:18px}
+.qs div{font-family:var(--display);font-size:clamp(1.3rem,3vw,1.9rem);font-weight:600;text-transform:uppercase;display:flex;gap:14px;align-items:baseline}
+.qs div i{font-style:normal;font-size:.75rem;letter-spacing:.2em;color:var(--sand);width:48px}
+
+/* fields */
+.field{display:grid;gap:6px}
+.field label{font-family:var(--display);font-weight:700;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.field textarea,.field input[type=text]{width:100%;border:0;border-bottom:2px solid var(--ink);background:transparent;padding:8px 0;font-size:1.15rem;line-height:1.35;resize:vertical;min-height:2.6em;outline:none}
+.field textarea:focus,.field input:focus{border-bottom-color:var(--red)}
+.field .ex{font-size:.85rem;color:var(--muted)}
+.when{display:grid;grid-template-columns:auto 1fr;gap:14px 18px;align-items:baseline;font-family:var(--display);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;text-transform:uppercase}
+.when input{border:0;border-bottom:3px solid var(--ink);background:transparent;font-family:var(--body);font-weight:500;font-size:clamp(1.1rem,2.6vw,1.5rem);text-transform:none;padding:4px 0;width:100%;min-width:0;outline:none}
+.when input:focus{border-bottom-color:var(--red)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 12px;font-size:.92rem}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.mirror{font-size:1.15rem;line-height:1.4;min-height:1.4em}
+.mirror:empty::before{content:"—";color:var(--muted)}
+.quote{border-left:4px solid var(--sand);padding:4px 0 4px 16px;color:var(--ink-2);font-style:italic}
+.cite{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+details{border-top:1px solid var(--line);padding:10px 0}
+summary{cursor:pointer;font-family:var(--display);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.85rem;color:var(--olive)}
+details p{margin-top:8px;font-size:.95rem;color:var(--ink-2);max-width:70ch}
+
+/* value adds */
+.va{display:grid;gap:10px;padding:20px;background:var(--paper-2);border-top:4px solid var(--olive);min-width:0}
+.va h3{font-size:1.35rem}
+.va .reo{font-family:var(--display);font-size:.9rem;letter-spacing:.08em;color:var(--sand);text-transform:uppercase}
+.va ul{margin:0;padding-left:18px;font-size:.97rem;display:grid;gap:4px}
+.va[data-pick="1"]{outline:3px solid var(--ink);outline-offset:2px}
+
+/* compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--ink)}
+.compare>div{padding:22px;min-width:0}
+.compare>div+div{border-left:2px solid var(--ink)}
+@media (max-width:820px){.compare{grid-template-columns:1fr}.compare>div+div{border-left:0;border-top:2px solid var(--ink)}}
+.obs{display:grid;gap:4px;padding:12px 0;border-top:1px solid var(--line)}
+.obs b{font-family:var(--display);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--olive)}
+.obs.sc-obs b{color:var(--red)}
+
+/* loop */
+.loop{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+@media (max-width:820px){.loop{grid-template-columns:1fr}}
+.step{background:var(--paper-2);padding:18px 16px;display:grid;gap:8px;position:relative;min-width:0}
+.step h3{font-size:1.5rem}
+.step .did{font-size:.95rem;color:var(--ink-2)}
+.step .did b{color:var(--ink)}
+.step::after{content:"→";position:absolute;right:-12px;top:14px;font-family:var(--display);font-size:1.4rem;color:var(--sand);z-index:1}
+.step:last-child::after{content:"↺";right:12px;top:10px;color:var(--red)}
+@media (max-width:820px){.step::after{content:"↓";right:14px;top:10px}.step:last-child::after{content:"↺"}}
+
+/* PPR */
+.ppr{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:2px solid var(--ink)}
+.ppr>div{padding:20px;min-width:0;display:grid;gap:10px;align-content:start}
+.ppr>div+div{border-left:2px solid var(--ink)}
+.ppr h3{font-size:1.5rem}
+@media (max-width:820px){.ppr{grid-template-columns:1fr}.ppr>div+div{border-left:0;border-top:2px solid var(--ink)}}
+.mech{display:flex;flex-wrap:wrap;gap:6px}
+.mech span{font-family:var(--display);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border:1px solid var(--line);border-radius:3px;color:var(--ink-2)}
+.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.zones div{padding:14px;font-family:var(--display);text-transform:uppercase;font-weight:700;font-size:1.1rem;letter-spacing:.04em}
+.zones .z1{background:var(--olive-soft)}.zones .z2{background:var(--sand-soft)}.zones .z3{background:var(--red-soft)}
+.zones small{display:block;font-family:var(--body);font-weight:400;text-transform:none;letter-spacing:0;font-size:.9rem;margin-top:6px;color:var(--ink-2)}
+.yn{display:flex;gap:8px}
+.yn button{border:1px solid var(--ink);background:var(--paper);padding:8px 14px;font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.yn button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+/* conversation */
+.convo{display:grid;gap:14px;max-width:62ch}
+.say{display:grid;gap:4px}
+.say b{font-family:var(--display);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.say p{font-size:1.25rem;line-height:1.3}
+.say.sc-say p{font-family:var(--display);font-weight:600;font-size:1.5rem;text-transform:none}
+
+/* timeline */
+.tl{display:grid;gap:0}
+.tl>div{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:16px 0;border-top:1px solid var(--line);align-items:baseline}
+.tl .k{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.15rem;letter-spacing:.04em}
+.tl .k small{display:block;font-size:.72rem;letter-spacing:.16em;color:var(--sand);font-weight:700}
+@media (max-width:600px){.tl>div{grid-template-columns:1fr;gap:4px}}
+.evid{display:grid;gap:6px;font-size:.95rem}
+.evid div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:6px 0;border-top:1px dashed var(--line)}
+.evid div b{font-family:var(--display);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--olive)}
+@media (max-width:600px){.evid div{grid-template-columns:1fr}}
+
+/* Section Commander + reviewer panels */
+.sc,.rv{display:none;margin-top:26px;padding:18px 20px;border-left:5px solid}
+body.sc-on .sc{display:block}
+body.rv-on .rv{display:block}
+.sc{border-color:var(--red);background:var(--red-soft)}
+.rv{border-color:var(--sand);background:var(--sand-soft)}
+.sc .eyebrow{color:var(--red)}
+.rv .eyebrow{color:#6E5F2E}
+.sc ul,.rv ul{margin:8px 0 0;padding-left:18px;font-size:.95rem;display:grid;gap:4px;max-width:80ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:3px;background:#fff;border:1px solid var(--sand)}
+.tag.set{border-color:var(--olive);color:var(--olive)}
+.tag.prov{border-color:#6E5F2E;color:#6E5F2E}
+.tag.tt{border-color:var(--red);color:var(--red)}
+.tag.val{border-color:var(--ink);color:var(--ink)}
+.p2note{display:none;margin-bottom:22px;padding:10px 14px;background:var(--sand-soft);border-left:5px solid var(--sand);font-size:.92rem}
+body.rv-on .p2note{display:block}
+
+/* nav */
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:20;background:var(--paper);border-top:1px solid var(--line);padding:0 16px;padding-bottom:env(safe-area-inset-bottom,0px)}
+.nav-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:14px;height:64px}
+.nav button{border:2px solid var(--ink);background:var(--paper);padding:10px 18px;font-family:var(--display);text-transform:uppercase;letter-spacing:.12em;font-weight:700;font-size:.95rem}
+.nav button.next{background:var(--ink);color:#fff;margin-left:auto}
+.nav button:disabled{opacity:.35;cursor:default}
+.count{font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;color:var(--muted)}
+.nav select{font:inherit;font-size:.9rem;border:1px solid var(--line);background:var(--paper);padding:6px 8px;max-width:46vw}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){.moment.on{animation:in .25s ease-out}@keyframes in{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+
+<header class="strip">
+  <div class="strip-in">
+    <div class="brand"><i></i><span>Lead Self · Taki Tūwā</span></div>
+    <div class="phases" id="phases">
+      <div class="phase" data-ph="0"><span>Who am I?</span><b></b></div>
+      <div class="phase" data-ph="1"><span>How do I affect others?</span><b></b></div>
+      <div class="phase" data-ph="2"><span>How do I perform?</span><b></b></div>
+      <div class="phase" data-ph="3"><span>What does the evidence tell me?</span><b></b></div>
+      <div class="phase" data-ph="4"><span>What will I change?</span><b></b></div>
+    </div>
+    <div class="tools">
+      <button class="tog" id="togSC" aria-pressed="false" title="Show what the Section Commander does at this moment">Sect Comd</button>
+      <button class="tog ev" id="togRV" aria-pressed="false" title="Show design status and assumptions">Reviewer</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- 0 COVER -->
+<section class="moment" data-q="-1" data-part="1">
+  <div class="head">
+    <p class="eyebrow">Part 1 · My Lead Self Foundation</p>
+    <h1>Your Lead Self Journey</h1>
+    <hr class="rule">
+    <p class="lede">Two days with your Section Commander to start something you will keep doing for the rest of recruit training, and after it.</p>
+  </div>
+  <div class="qs" aria-label="The five questions">
+    <div><i>Day 1</i>Who am I?</div>
+    <div><i>Day 1</i>How do I affect others?</div>
+    <div><i>Day 2</i>How do I perform?</div>
+    <div><i>Day 2</i>What does the evidence tell me?</div>
+    <div><i>Day 2</i>What will I change?</div>
+  </div>
+  <p class="small" style="margin-top:28px;max-width:60ch">This is a concept demonstrator. Example entries are already filled in. Change them as you go; later screens pick up what you write.</p>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p>
+    <div class="tags"><span class="tag set">Settled: five questions as frame</span><span class="tag prov">Provisional: Part 1 / Part 2 naming</span></div>
+    <ul><li>The five questions organise the journey; they are not chapters (08 §1.4). The strip at the top shows them as phases.</li><li>"Orientate" is not used anywhere (08 L5).</li><li>Cover language is recruit-facing. Doctrine appears from screen 3 onward, quoted verbatim.</li></ul></div>
+</section>
+
+<!-- 1 WHY -->
+<section class="moment" data-q="-1" data-part="1">
+  <div class="head">
+    <div class="where"><span class="pill">Day 1</span><span class="pill q">Why this matters</span></div>
+    <h2>You already lead. The question is how.</h2>
+  </div>
+  <div class="grid g2">
+    <div class="stack">
+      <p class="lede">In a section, everyone influences everyone. How you turn up when you're tired, behind, or wrong changes how the section performs.</p>
+      <p>That influence is leadership at the Lead Self level. It doesn't need a rank. It needs you to see your own behaviour clearly and to change it on purpose.</p>
+      <p class="quote">Leadership is influencing, motivating and enabling others to contribute to the effectiveness and success of the New Zealand Defence Force, in an ethical manner.</p>
+      <p class="cite">NZDDP 0.06, para 1.11 · Workbook p.1</p>
+    </div>
+    <div class="panel ink stack">
+      <p class="eyebrow">Over the next two days you will</p>
+      <p class="big">Do a real task while someone watches how you turn up.</p>
+      <p class="big">Get evidence from another person about what they saw.</p>
+      <p class="big">Pick one thing to do differently, and try it under pressure.</p>
+      <p class="small">By tomorrow night you'll have a method you can keep using without us.</p>
+    </div>
+  </div>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>Delivers this framing in their own words. One example of a time their own behaviour changed how a section went.</li><li>Sets the expectation: "Over these two days I'll watch, I'll tell you one thing I saw, and I'll ask you about it for the rest of the course."</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag set">Settled: experience before explanation</span><span class="tag prov">Provisional: wording</span></div>
+    <ul><li>Phase 2 02, block 1A. Leadership definition quoted verbatim; everything else is recruit-facing gloss.</li><li>Tōtara / Growth Rings / LDS are reference, not taught here (06 §1.3). Cultural review required before any re-presentation (D10/13).</li></ul></div>
+</section>
+
+<!-- 2 EXPECTATIONS -->
+<section class="moment" data-q="-1" data-part="1">
+  <div class="head">
+    <div class="where"><span class="pill">Day 1</span><span class="pill q">Lead Self expectations</span></div>
+    <h2>Four ways you add value to the section</h2>
+    <p class="lede">These are the Lead Self Value Adds. The sentence under each is from the NZDF Leadership Framework. The list is what it looks like in a section, in the Framework's own words.</p>
+  </div>
+  <div class="grid g4" id="vaGrid">
+    <div class="va" data-va="Follow Leader's Intent"><h3>Follow Leader's Intent</h3><span class="reo">Whai Hau Tū</span>
+      <p class="quote">Lead Self Leaders deliver the right outcomes efficiently and on time by acting in accordance with their leaders intent.</p>
+      <p class="eyebrow">Looks like</p><ul><li>Check you and others understand the purpose of your tasks.</li><li>Prioritise and manage your own time and resources to ensure work is completed efficiently and on time.</li><li>Accept accountability for your actions, outputs and behaviours.</li></ul></div>
+    <div class="va" data-va="Apply Good Judgement"><h3>Apply Good Judgement</h3><span class="reo">Taituara</span>
+      <p class="quote">They improve the quality of their decisions by remaining calm and increasing their situational awareness.</p>
+      <p class="eyebrow">Looks like</p><ul><li>Pay attention to what's happening around you.</li><li>Check you and others understand the situation. Get advice when in doubt.</li><li>Make decisions in the required time.</li></ul></div>
+    <div class="va" data-va="Support Others"><h3>Support Others</h3><span class="reo">Whakaaro Nui</span>
+      <p class="quote">They are predictable, consistent and fair, regularly reflecting on their behaviour to understand and manage the impact they have on those around them.</p>
+      <p class="eyebrow">Looks like</p><ul><li>Actively share information and collaborate. Work towards solutions with others.</li><li>Admit mistakes and ask for help when needed.</li><li>Speak up against behaviour that does not meet NZDF Ethos &amp; Values.</li></ul></div>
+    <div class="va" data-va="Pursue Excellence"><h3>Pursue Excellence</h3><span class="reo">Whai Hiranga</span>
+      <p class="quote">They dedicate time and effort to their own development, are proactive in keeping up to date, and are curious and open to new ideas and initiatives.</p>
+      <p class="eyebrow">Looks like</p><ul><li>Use mistakes as opportunities to learn.</li><li>Regularly reflect on your behaviour &amp; performance to become self-aware.</li><li>Practice resilience skills to stay calm.</li></ul></div>
+  </div>
+  <p class="cite" style="margin-top:14px">Value Adds: Workbook p.4 · Behaviour Statements: Workbook pp.5–6 (verbatim)</p>
+  <details><summary>Full Value Add text (reference)</summary>
+    <p><b>Follow Leader's Intent.</b> Lead Self Leaders deliver the right outcomes efficiently and on time by acting in accordance with their leaders intent. They ensure they clearly understand the intent and purpose of their team, role and tasks, by asking questions of their peers and Team Leader. Tasks are completed effectively by prioritising effort, managing time, making timely decisions and coordinating with peers. They demonstrate accountability for the results of their work and behaviour by following-through on commitments and openly discussing their mahi, including successes and failures, and ideas for improvement. Self Leaders actively seek feedback to improve, and consider diverse perspectives.</p>
+    <p><b>Apply Good Judgement.</b> Lead Self Leaders apply good judgement to make effective decisions that align with and deliver on their team's mission. They improve the quality of their decisions by remaining calm and increasing their situational awareness. They support team-mates with this too. Self Leaders use logic, experience, others' perspectives and sound practical judgment when considering options. They understand their leader's intent and that their tasks and responsibilities contribute to a larger 'whole', no matter how mundane they are. Self Leaders use NZDF Values to guide their judgement and decisions, particularly in times of uncertainty and ambiguity.</p>
+    <p><b>Support Others.</b> All NZDF leaders are members of a team and always have responsibility to be an effective team member; to support others, build trust, cohesion and team effectiveness. Self Leaders consistently align their behaviour with NZDF values. They are predictable, consistent and fair, regularly reflecting on their behaviour to understand and manage the impact they have on those around them. They connect and collaborate inclusively with others, regardless of background. Self Leaders are curious and ask questions to understand different perspectives on issues the team is facing. They remain calm and solution-focused when faced with tension or conflict, and support healthy debate by being open and respectful. Self Leaders speak up when they observe behaviours that do not meet the NZDF Values. They support their team-mates to maintain resilience and wellbeing.</p>
+    <p><b>Pursue Excellence.</b> Lead Self Leaders are key to delivering high quality outcomes 'on the ground'. To do this well, they must focus on becoming an expert in all aspects of the technical and professional skills required of them, striving to be the best they can be. They dedicate time and effort to their own development, are proactive in keeping up to date, and are curious and open to new ideas and initiatives. They are willing to challenge the status quo and take appropriate risks when trialling new methods.They seek coaching, and provide honest feedback about their own and others' performance and impact on the team. They engage with whanau and trusted support networks in and outside NZDF to help maintain resilience and wellbeing. Self Leaders embrace change in a positive manner and help others to do so too.</p>
+  </details>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>Gives one real TAD example for each Value Add. Doesn't read the cards aloud.</li><li>Tells the section: "Everything we do over two days gets tagged to one of these four."</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag set">Settled: doctrine verbatim</span><span class="tag prov">Provisional: explicit instruction for Value Adds</span><span class="tag prov">Indicative mapping</span></div>
+    <ul><li>Value Add sentences and Behaviour Statements are reproduced word for word. Nothing is reworded (constraint 2, Phase 2 brief).</li><li>The "Looks like" grouping of Behaviour Statements under each Value Add is the audit's indicative mapping (Phase 1 01 §4), not a doctrinal one. Confirm with ELDA.</li><li>Value Adds are among the six strongest candidates for explicit instruction, not locked (06 §1.4).</li></ul></div>
+</section>
+
+<!-- 3 WHO AM I -->
+<section class="moment" data-q="0" data-part="1">
+  <div class="head">
+    <div class="where"><span class="pill">Day 1</span><span class="pill q">Who am I?</span></div>
+    <h2>How do I want my section to experience me?</h2>
+    <p class="lede">This is your <b>identity</b>: how you see you. Tomorrow you'll put it next to your <b>reputation</b>: how others see you. Keep it short and honest.</p>
+  </div>
+  <div class="grid g2">
+    <div class="stack">
+      <div class="field"><label for="f_identity">In my section, I want to be the person who…</label>
+        <textarea id="f_identity" data-key="identity" rows="3"></textarea>
+        <span class="ex">Example already filled in. Write your own.</span></div>
+      <div class="field"><label for="f_values">How I'll show the Army values here</label>
+        <textarea id="f_values" data-key="values" rows="3"></textarea>
+        <span class="ex">Courage · Commitment · Comradeship · Integrity. One line is enough.</span></div>
+    </div>
+    <div class="panel stack">
+      <p class="eyebrow">Why write this down</p>
+      <p class="quote">Identity – how you see you. Reputation – how others see you.</p>
+      <p class="cite">Workbook p.7</p>
+      <p>Most people's identity and reputation don't match perfectly. The gap is where development happens. You can't see the gap on your own. That's what the next two days are for.</p>
+    </div>
+  </div>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>Explains identity vs reputation in plain words, and shares a one-line example of their own.</li><li>Doesn't read anyone's statement unless invited. This is the recruit's.</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag set">Settled: early Identity vs Reputation experience (DR-2)</span><span class="tag val">Evidence V1</span></div>
+    <ul><li>Phase 2 02, block 1B. The identity statement is the first entry in the evidence thread (03 §6) and is revisited at march-out.</li><li>Values commitment retained from workbook p.17 and revisited at march-out (06 §2).</li><li>Privacy rule still to be decided (D12): who sees this entry.</li></ul></div>
+</section>
+
+<!-- 4 EXPERIENCE -->
+<section class="moment" data-q="1" data-part="1">
+  <div class="head">
+    <div class="where"><span class="pill">Day 1</span><span class="pill q">Experience</span></div>
+    <h2>Now do something real while someone watches</h2>
+    <p class="lede">Your section plans tonight's routine. It has to work. While you do it, your buddy watches one thing: what you actually say and do.</p>
+  </div>
+  <div class="grid g2">
+    <div class="panel stack">
+      <p class="eyebrow">The task</p>
+      <p class="big">Plan the section's evening routine so nobody is ever waiting.</p>
+      <ul style="margin:0;padding-left:18px;display:grid;gap:4px">
+        <li>List what each person has to get done and how long it takes.</li>
+        <li>Find the bottlenecks (showers, irons, boot brushes).</li>
+        <li>Synchronise so the section finishes together, on time.</li>
+      </ul>
+      <p class="cite">Based on Workbook pp.47–49 · Specified and implied tasks; synchronising routine</p>
+    </div>
+    <div class="panel olive stack">
+      <p class="eyebrow">Your buddy's job</p>
+      <p class="big">Watch. Don't help. Notice one thing that helped and one thing that got in the way.</p>
+      <p>Write exactly what you saw, and when. Not what kind of person they are.</p>
+      <p class="small">You'll be watched too. That's the deal.</p>
+    </div>
+  </div>
+  <p class="small" style="margin-top:18px">Nothing here is graded. It's the first time you get evidence.</p>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>Sets the task with a real constraint (tonight's timings). Pairs buddies.</li><li>Observes. Notes one specific behaviour per recruit, with the moment it happened. That's the only thing they write today.</li><li>Does not intervene in the planning unless safety requires it.</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag prov">Provisional: task choice</span><span class="tag set">Settled: observed real task on Day 1</span></div>
+    <ul><li>Phase 2 02, block 1D. The routine-planning task is the <b>leading candidate</b>, not the decision (09 O9). It is real, low-stakes and already in the workbook.</li><li>Interaction with other week-1 TAD serials is <b>TIMETABLE DEPENDENT</b>.</li><li>Buddy pairing method (odd numbers, absences) is a Phase 3 detail.</li></ul></div>
+</section>
+
+<!-- 5 FEEDBACK -->
+<section class="moment" data-q="1" data-part="1">
+  <div class="head">
+    <div class="where"><span class="pill">Day 1</span><span class="pill q">How do I affect others?</span></div>
+    <h2>What I intended. What they saw.</h2>
+    <p class="lede">Feedback here is always what you did, when, and what it did to the section. Never who you are.</p>
+  </div>
+  <div class="compare">
+    <div>
+      <p class="eyebrow">What I intended</p>
+      <p class="mirror" data-bind="identity"></p>
+      <p class="cite" style="margin-top:14px">My identity statement, this morning</p>
+    </div>
+    <div>
+      <p class="eyebrow">What others experienced</p>
+      <div class="obs"><b>Buddy · got in the way</b>
+        <div class="field"><textarea data-key="fb_dev" rows="3" aria-label="Buddy feedback, got in the way"></textarea></div></div>
+      <div class="obs"><b>Buddy · helped</b>
+        <div class="field"><textarea data-key="fb_str" rows="2" aria-label="Buddy feedback, helped"></textarea></div></div>
+      <div class="obs sc-obs"><b>Section Commander · one thing I saw</b>
+        <div class="field"><textarea data-key="fb_sc" rows="2" aria-label="Section Commander observation"></textarea></div></div>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:22px">
+    <div class="field"><label for="f_gap">Where's the gap? Where's the match?</label>
+      <textarea id="f_gap" data-key="gap" rows="2"></textarea>
+      <span class="ex">One sentence. This is your first insight.</span></div>
+    <div class="panel stack">
+      <p class="eyebrow">How to give it</p>
+      <p><b>What I saw.</b> <b>When.</b> <b>What it did</b> for the person, the section, the task.</p>
+      <p class="cite">DEB / DESC format · Workbook pp.10–11</p>
+      <p class="small">Receiving it: listen, ask one question if you need to, say thanks. No explaining.</p>
+    </div>
+  </div>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>Goes first: gives their own observation to one recruit in front of the section, so everyone hears the format.</li><li>Gives each recruit one observation. Short. Specific. With the moment it happened.</li><li>Manages tone. Stops anything that drifts to personality.</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag set">Settled: DEB/DESC kept</span><span class="tag set">Settled: intention vs impact made explicit</span><span class="tag val">Validation: AS-4, AS-5</span></div>
+    <ul><li>Phase 2 02, block 1E. This is the strongest moment of the architecture and the one that operationalises the workbook's own statement that feedback aligns identity and reputation (p.10).</li><li>Whether recruits give honest feedback with a Section Commander present is being tested (10, R-6, R-7, SC-8). If they self-censor, the buddy carries more of this.</li><li>Whether this evidence is ever used for assessment is unresolved (04 §5.1, 09 B6).</li></ul></div>
+</section>
+
+<!-- 6 PRIORITY -->
+<section class="moment" data-q="4" data-part="1">
+  <div class="head">
+    <div class="where"><span class="pill">Day 1 → Day 2</span><span class="pill q">What will I change?</span></div>
+    <h2>One thing. Not eleven.</h2>
+    <p class="lede">Turn the evidence into one behaviour you'll try tomorrow. Make it something your buddy could see you do.</p>
+  </div>
+  <div class="panel stack" style="padding:28px">
+    <div class="when">
+      <span>When</span><input type="text" data-key="p_when" aria-label="When">
+      <span>I will</span><input type="text" data-key="p_will" aria-label="I will">
+    </div>
+    <div class="grid g2" style="margin-top:10px">
+      <div class="field"><label>Which Value Add does this build?</label>
+        <div class="chips" id="vaChips">
+          <button class="chip" data-va="Follow Leader's Intent">Follow Leader's Intent</button>
+          <button class="chip" data-va="Apply Good Judgement">Apply Good Judgement</button>
+          <button class="chip" data-va="Support Others">Support Others</button>
+          <button class="chip" data-va="Pursue Excellence">Pursue Excellence</button>
+        </div></div>
+      <div class="field"><label for="f_bs">Behaviour Statement it matches</label>
+        <input type="text" id="f_bs" data-key="p_bs">
+        <span class="ex">Pick one from the Framework, word for word.</span></div>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:22px">
+    <div class="stack">
+      <p class="eyebrow">Why only one</p>
+      <p>You'll carry this with you. Your buddy knows it. Your Section Commander knows it. People will ask you about it. That only works if there is one.</p>
+      <p class="small">The old workbook asked for a new development area at the end of every lesson, eleven times. None of them were ever checked. One that gets checked beats eleven that don't.</p>
+    </div>
+    <div class="panel olive stack">
+      <p class="eyebrow">Tell your buddy now</p>
+      <p class="big">"Tomorrow, watch for this."</p>
+      <p class="mirror" data-bind="priority"></p>
+    </div>
+  </div>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>Quick check of each priority: is it a behaviour someone could see? If it's a trait ("be more confident"), helps turn it into an action.</li><li>Notes each recruit's one line. This is the only list they ever keep, and it's for their own use.</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag set">Settled: one active priority at a time</span><span class="tag prov">Provisional: "When / I will" format</span></div>
+    <ul><li>Phase 2 01 C8, 03 L1. The "When ___, I will ___" format is a design format, not doctrine (09 A4).</li><li>Keep/Stop/Start is deliberately absent here; it is reserved for the LDP (03 §5), subject to D7.</li><li>Whether a Section Commander may hold a section priority list is a privacy decision (09 B3).</li></ul></div>
+</section>
+
+<!-- 7 PRESSURE -->
+<section class="moment" data-q="2" data-part="1">
+  <div class="head">
+    <div class="where"><span class="pill day2">Day 2</span><span class="pill q">How do I perform?</span></div>
+    <h2>Pressure changes what you do. Notice it early.</h2>
+    <p class="lede">Yesterday you learned how you come across. Today: what happens to that when you're tired, rushed, or things go wrong.</p>
+  </div>
+  <div class="grid g2">
+    <div class="stack">
+      <p class="eyebrow">Where were you?</p>
+      <div class="zones">
+        <div class="z1">Comfort<small>Known. Easy. Can get dull.</small></div>
+        <div class="z2">Stretch<small>Hard, but you can still manage your behaviour, make decisions and notice others.</small></div>
+        <div class="z3">Panic<small>Fight, flight or freeze. You can't.</small></div>
+      </div>
+      <p class="cite">Comfort Zone · Workbook p.8</p>
+      <p class="panel" style="font-family:var(--display);font-size:1.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.02em">Performance = Potential − Interference</p>
+      <p class="small">Same ability, less interference, better performance. Interference is trainable. <span class="cite">Workbook p.58</span></p>
+      <div class="field"><label for="f_signs">My early signs that pressure is getting to me</label>
+        <textarea id="f_signs" data-key="signs" rows="2"></textarea></div>
+    </div>
+    <div class="stack">
+      <p class="eyebrow">Pick one tool for today's task</p>
+      <div class="chips" id="toolChips">
+        <button class="chip" data-tool="Tactical breathing">Tactical breathing <span class="small">· deep, slow, rhythmic</span></button>
+        <button class="chip" data-tool="Grounding">Grounding <span class="small">· whole attention on what's in front of you</span></button>
+        <button class="chip" data-tool="Instructional self-talk">Instructional self-talk <span class="small">· the next step, out loud in your head</span></button>
+        <button class="chip" data-tool="SA check">SA check <span class="small">· What? So what? What now?</span></button>
+        <button class="chip" data-tool="Circle of concern">Circle of concern <span class="small">· what can I actually control?</span></button>
+      </div>
+      <p class="cite">Mental skills p.59 · Situational awareness p.34 · Circle of concern p.54</p>
+      <div class="panel stack">
+        <p class="eyebrow">Under pressure, in this order</p>
+        <div class="mech"><span>Notice interference</span><span>Keep situational awareness</span><span>Regulate</span><span>Refocus</span><span>Act</span><span>Review</span></div>
+        <p class="small">Practise the breathing now, before you need it. Thirty seconds.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>Shares one real example of their own interference under pressure and what they do about it.</li><li>Leads the breathing practice. Does it with them.</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag set">Settled: source-supported mechanisms only</span><span class="tag prov">Provisional: labels are neutral placeholders</span><span class="tag prov">Provisional: pressure tools early (D6)</span></div>
+    <ul><li>Phase 2 07. The six mechanism labels are working labels; Combat Mindset terminology is unresolved and not used (08 §1.7). WIN is not introduced.</li><li>Red Head–Blue Head is named in the workbook but undefined in any supplied source, so it is not shown (07 §1).</li><li>Mental skills shown are a subset of workbook p.59; the full list is reference.</li></ul></div>
+</section>
+
+<!-- 8 REAPPLY -->
+<section class="moment" data-q="2" data-part="1">
+  <div class="head">
+    <div class="where"><span class="pill day2">Day 2</span><span class="pill q">Reapply</span></div>
+    <h2>Same priority. Now under pressure.</h2>
+    <p class="lede">A section task with a clock on it and a plan that changes partway. Your buddy watches for one thing only: your priority.</p>
+  </div>
+  <div class="ppr">
+    <div>
+      <h3>Prepare</h3>
+      <p class="eyebrow">My priority</p><p class="mirror" data-bind="priority"></p>
+      <p class="eyebrow">My tool</p><p class="mirror" data-bind="tool"></p>
+      <p class="eyebrow">My early signs</p><p class="mirror" data-bind="signs"></p>
+    </div>
+    <div>
+      <h3>Perform</h3>
+      <p class="big">This part happens on the ground, not on a page.</p>
+      <p class="small">Notice. Regulate. Keep your head up. Decide in time. Act.</p>
+    </div>
+    <div>
+      <h3>Recover</h3>
+      <p class="eyebrow">Buddy: did you see it?</p>
+      <div class="yn" id="seen"><button data-seen="Yes">Yes</button><button data-seen="Partly">Partly</button><button data-seen="No">No</button></div>
+      <div class="field"><textarea data-key="ev_d2" rows="3" aria-label="Buddy evidence"></textarea><span class="ex">What you saw, when, what it did.</span></div>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:22px">
+    <div class="field"><label for="f_debrief">Two-minute debrief: what happened, what I did, what worked, what next</label>
+      <textarea id="f_debrief" data-key="debrief" rows="4"></textarea></div>
+    <div class="panel sand stack">
+      <p class="eyebrow">What you've got now</p>
+      <p>Two days. Two pieces of outside evidence about the same behaviour. One from a calm task, one under pressure. That's a trend, not a guess.</p>
+    </div>
+  </div>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>Designs and runs the pressure: time, load, a change of plan partway. Safety first.</li><li>Observes. Gives one short observation where it helps the debrief.</li><li>Reminds buddies: "You're watching for their one thing."</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag set">Settled: loop turns once inside the two days</span><span class="tag prov">Provisional: pressure task design</span><span class="tag val">Evidence V4, V5</span></div>
+    <ul><li>Phase 2 02, block 2C. Whether an existing week-1 TAD activity can serve as the pressure task, or NZALC must design one, is open (09 O9).</li><li>Prepare → Perform → Recover is used only as the frame around pressured activity (08 §1.3).</li><li>SSR (workbook p.63) simplified to four questions for everyday use; full version at exercises (06 §1.3).</li></ul></div>
+</section>
+
+<!-- 9 REVEAL -->
+<section class="moment" data-q="3" data-part="1">
+  <div class="head">
+    <div class="where"><span class="pill day2">Day 2</span><span class="pill q">What does the evidence tell me?</span></div>
+    <h2>You've already done this.</h2>
+    <p class="lede">There's a name for what you did over the last two days. It's the method. It's yours now.</p>
+  </div>
+  <div class="loop">
+    <div class="step"><h3>Experience</h3><p class="did"><b>Yesterday:</b> planned the routine while your buddy watched.</p></div>
+    <div class="step"><h3>Feedback</h3><p class="did"><b>Yesterday:</b> buddy and Section Commander told you what they saw.</p></div>
+    <div class="step"><h3>Reflect</h3><p class="did"><b>Yesterday:</b> put what you intended next to what they saw.</p></div>
+    <div class="step"><h3>Adapt</h3><p class="did"><b>Yesterday:</b> chose one thing. <em data-bind="priority"></em></p></div>
+    <div class="step"><h3>Reapply</h3><p class="did"><b>Today:</b> tried it under pressure. Buddy: <em data-bind="seen"></em>.</p></div>
+  </div>
+  <p style="margin-top:22px;max-width:60ch">Reapply is just the next experience. So it goes round again. Every section task, every inspection, every exercise from here is a turn of the loop, if you let it be.</p>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>Names the loop by pointing back at what the section did, not by teaching a model.</li><li>"From here, I'll ask you where you're at on this. That's it."</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag set">Settled: loop revealed after it is experienced</span><span class="tag set">Settled: recruit loop wording</span></div>
+    <ul><li>08 §1.3. The loop is the recruit's own cycle. The NZALC method (LEARN → PRACTICE → PRESSURE → APPLY → REINFORCE) shaped the two days and is not shown to recruits.</li><li>Every step maps to an existing Behaviour Statement (Phase 2 01 §1), so the loop adds no new standard.</li></ul></div>
+</section>
+
+<!-- 10 HANDOVER -->
+<section class="moment" data-q="3" data-part="1">
+  <div class="head">
+    <div class="where"><span class="pill day2">Day 2 · end</span><span class="pill q">Handover</span></div>
+    <h2>Part 1 is done. From here it's yours.</h2>
+    <p class="lede">We gave you the method. Training gives you the experiences. You own the development. Two people help you see it.</p>
+  </div>
+  <div class="grid g4">
+    <div class="panel ink stack"><p class="eyebrow">You</p><p class="big">Own it.</p><p class="small">Carry one priority. Notice when it comes up. Try it. Ask what people saw.</p></div>
+    <div class="panel olive stack"><p class="eyebrow">Your buddy</p><p class="big">Watches for your one thing.</p><p class="small">You watch for theirs. A quick word when it matters.</p></div>
+    <div class="panel stack"><p class="eyebrow">Your Section Commander</p><p class="big">Coaches. Doesn't check your book.</p>
+      <ul style="margin:0;padding-left:18px;font-size:.92rem;display:grid;gap:3px"><li>Knows your priority</li><li>Asks you about it when it's relevant</li><li>Gives you one honest observation at each exercise</li><li>Runs the feedback after Exercise One and Two</li><li>Uses the same language you do</li></ul></div>
+    <div class="panel sand stack"><p class="eyebrow">Training</p><p class="big">Supplies the experiences.</p><p class="small">You don't need extra ones. The course is the laboratory.</p></div>
+  </div>
+  <div class="panel" style="margin-top:22px;display:grid;gap:8px">
+    <p class="eyebrow">Part 2 · My Lead Self Development</p>
+    <p>The next screens show what Part 2 does. It's small on purpose. Most of your development will happen in conversations, not on a page.</p>
+    <p class="small">If things get on top of you at any point, tell your Section Commander or use the support pathway you were briefed on. That's separate from all of this.</p>
+  </div>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>Makes the commitment visibly: "I will ask you. Not every day, but when it matters."</li><li>Confirms buddy pairs. Confirms where to get help if struggling.</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag set">Settled: ownership model (08 §1.0)</span><span class="tag set">Settled: five SC behaviours as working minimum</span><span class="tag val">Validation: ST-4</span></div>
+    <ul><li>Phase 2 04 §2. The five behaviours are recruit-facing here; the support-vs-administer test (04 §2.1) applies to each.</li><li>The mental-health pathway is a duty-of-care item, kept separate from performance material (D10/13).</li></ul></div>
+</section>
+
+<!-- 11 EVERYDAY -->
+<section class="moment" data-q="3" data-part="2">
+  <div class="p2note"><b>Part 2:</b> these screens show <b>function</b>, not format. Whether this lives in a book, a card, a notebook, or somewhere else is not decided (09 B1).</div>
+  <div class="head">
+    <div class="where"><span class="pill p2">Part 2 · TAD</span><span class="pill q">Everyday</span></div>
+    <h2>Most days, nothing to write.</h2>
+    <p class="lede">After a task, after an inspection, at the end of the day. Thirty seconds, if that.</p>
+  </div>
+  <div class="grid g2">
+    <div class="convo">
+      <div class="say sc-say"><b>Section Commander</b><p>"What's your priority at the moment?"</p></div>
+      <div class="say"><b>You</b><p class="mirror" data-bind="priority"></p></div>
+      <div class="say sc-say"><b>Section Commander</b><p>"Did it come up today?"</p></div>
+      <div class="say"><b>You</b><p>"Yeah, when the timings changed at lunch. I asked two people first. Then I lost it a bit when we were late."</p></div>
+      <div class="say sc-say"><b>Section Commander</b><p>"What will you try next time?"</p></div>
+      <div class="say"><b>You</b><p>"Same thing, but when we're already behind."</p></div>
+    </div>
+    <div class="panel stack">
+      <p class="eyebrow">What Part 2 does here</p>
+      <p class="big">Shows you your priority. That's all.</p>
+      <p class="small">So that when someone asks, you know what you said, and so it's in front of you when the moment comes.</p>
+      <p class="small"><b>Nothing to write. Nothing to sign.</b> Write a line only if you want to remember it.</p>
+    </div>
+  </div>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>One question, at a natural moment: after an activity, at the section brief. Not scheduled. Not recorded.</li><li>Uses the words: priority, what happened, next time, above the line, stretch zone.</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag set">Settled: everyday intensity, no record</span><span class="tag val">Validation: AS-6, AS-8, SC-5, SC-6</span><span class="tag tt">Format unresolved</span></div>
+    <ul><li>Phase 2 03 §4.1. Demonstrates FR-1 and FR-2 (see priority, remember behaviour). The conversation is the mechanism; the tool is only a cue.</li><li>Whether Section Commanders have these moments, and already coach like this, is being tested (10, SC-5, SC-6, SC-9).</li></ul></div>
+</section>
+
+<!-- 12 CHECKPOINT -->
+<section class="moment" data-q="3" data-part="2">
+  <div class="p2note"><b>Part 2:</b> function shown, format not decided. <b>Placement of this checkpoint is TIMETABLE DEPENDENT.</b></div>
+  <div class="head">
+    <div class="where"><span class="pill p2">Part 2 · TAD</span><span class="pill q">Checkpoint</span><span class="pill" style="background:var(--red-soft);color:var(--red)">Timetable dependent</span></div>
+    <h2>Once in a while, four lines.</h2>
+    <p class="lede">Before each exercise, at least once: you and your buddy, two minutes, attached to something you already do.</p>
+  </div>
+  <div class="grid g2">
+    <div class="panel stack">
+      <div class="field"><label>My priority</label><p class="mirror" data-bind="priority"></p></div>
+      <div class="field"><label for="f_cp_what">What happened</label><input type="text" id="f_cp_what" data-key="cp_what"></div>
+      <div class="field"><label for="f_cp_obs">One outside observation (buddy)</label><input type="text" id="f_cp_obs" data-key="cp_obs"></div>
+      <div class="field"><label for="f_cp_next">Keep or adjust · what I'll reapply</label><input type="text" id="f_cp_next" data-key="cp_next"></div>
+    </div>
+    <div class="stack">
+      <p class="eyebrow">Why this exists</p>
+      <p>Before anyone reviews your priority at Exercise One, you should have tried it on purpose and had someone tell you what they saw. This is where that gets captured. Four lines is the maximum, not the minimum.</p>
+      <p class="small">Where it attaches is decided with TAD, from the programme. Candidates: the Rest, Revise, Reflect evening routine; the end-of-week section brief; an existing AAR.</p>
+    </div>
+  </div>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>Not required. A one-line reminder at the section brief ("check in with your buddy this week") is enough.</li><li>If a recruit wants to change their priority, a quick word.</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag tt">Timetable dependent</span><span class="tag set">Settled: DR-1 reapply before review</span><span class="tag prov">Provisional: frequency (D17)</span><span class="tag tt">Format unresolved</span></div>
+    <ul><li>Phase 2 03 §4.2. Minimum one checkpoint before Ex One and one between Ex One and Ex Two; frequency not prescribed (D17).</li><li>Demonstrates FR-3 (capture evidence when required), FR-4 (short reflection), FR-6 (update priority).</li><li>Attachment point depends on TAD programme (09 O1) and on what recruits carry (10, R-4).</li></ul></div>
+</section>
+
+<!-- 13 EX ONE -->
+<section class="moment" data-q="3" data-part="2">
+  <div class="p2note"><b>Part 2:</b> function shown, format not decided. Existing LDP structure kept; fields added (Phase 1 06 §4.3).</div>
+  <div class="head">
+    <div class="where"><span class="pill p2">Part 2 · Exercise One</span><span class="pill q">Major review</span></div>
+    <h2>Exercise One. What does the evidence say?</h2>
+    <p class="lede">Prepare, perform, recover. Then the section sits down. Everyone gives, everyone gets. Then you build your plan from what's been collected, not from scratch.</p>
+  </div>
+  <div class="grid g3">
+    <div class="panel stack"><p class="eyebrow">Self · after the exercise</p>
+      <div class="field"><label for="f_ex_self">What I did, when, what it did</label><textarea id="f_ex_self" data-key="ex_self" rows="4"></textarea></div></div>
+    <div class="panel stack"><p class="eyebrow">Section feedback round</p>
+      <div class="field"><label for="f_ex_peer">Peers · development area (how many said it)</label><textarea id="f_ex_peer" data-key="ex_peer" rows="2"></textarea></div>
+      <div class="field"><label for="f_ex_peer2">Peers · strength</label><textarea id="f_ex_peer2" data-key="ex_peer2" rows="2"></textarea></div>
+      <div class="obs sc-obs"><b>Section Commander · one thing I saw</b><div class="field"><textarea data-key="ex_sc" rows="2" aria-label="Section Commander observation at Exercise One"></textarea></div></div></div>
+    <div class="panel olive stack"><p class="eyebrow">My priority · did I do it?</p>
+      <p class="mirror" data-bind="priority"></p>
+      <div class="yn" id="exdid"><button data-did="Yes">Yes</button><button data-did="Partly">Partly</button><button data-did="No">No</button></div>
+      <p class="eyebrow" style="margin-top:8px">Identity vs reputation now</p>
+      <div class="field"><textarea data-key="ex_gap" rows="3" aria-label="Identity vs reputation at Exercise One"></textarea></div></div>
+  </div>
+  <div class="panel ink" style="margin-top:22px;display:grid;gap:14px">
+    <p class="eyebrow">My Lead Self Development Plan · after Exercise One</p>
+    <div class="grid g2">
+      <div class="stack">
+        <div class="field"><label style="color:#C9D3B0">Priority (development area) · When / I will</label><p class="mirror" data-bind="priority"></p></div>
+        <div class="field"><label style="color:#C9D3B0">Value Add · Behaviour Statement</label><p class="mirror"><span data-bind="va"></span> · <span data-bind="p_bs"></span></p></div>
+        <div class="field"><label style="color:#C9D3B0">Evidence this comes from</label>
+          <div class="evid" id="evidLDP"></div></div>
+      </div>
+      <div class="stack">
+        <div class="field"><label for="f_ldp_kss" style="color:#C9D3B0">Keep · Stop · Start</label><textarea id="f_ldp_kss" data-key="ldp_kss" rows="3" style="color:#fff;border-bottom-color:#C9D3B0"></textarea></div>
+        <div class="field"><label for="f_ldp_see" style="color:#C9D3B0">What will others see me doing?</label><textarea id="f_ldp_see" data-key="ldp_see" rows="2" style="color:#fff;border-bottom-color:#C9D3B0"></textarea></div>
+        <div class="field"><label for="f_ldp_know" style="color:#C9D3B0">How will I know it's working?</label><textarea id="f_ldp_know" data-key="ldp_know" rows="2" style="color:#fff;border-bottom-color:#C9D3B0"></textarea></div>
+        <div class="field"><label for="f_ldp_str" style="color:#C9D3B0">Priority strength · keep and use deliberately where?</label><textarea id="f_ldp_str" data-key="ldp_str" rows="2" style="color:#fff;border-bottom-color:#C9D3B0"></textarea></div>
+      </div>
+    </div>
+    <p class="small">Reviewed at Exercise Two: did I do it, what does new feedback say, keep, adjust or replace.</p>
+  </div>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>Facilitates the section round: self first, then peers, one strength and one development area each, in the format. Then their own one observation per recruit.</li><li>Asks one or two questions if a recruit is stuck on the plan. Doesn't write it.</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag set">Settled: Ex One / Ex Two major evidence points (DR-3)</span><span class="tag val">Validation: AS-7 (who runs this now)</span><span class="tag tt">Assessment unresolved</span><span class="tag tt">Format unresolved</span></div>
+    <ul><li>Phase 2 03 §4.3. Existing workbook mechanism (self → peers → summary → LDP, pp.68–77) retained. Added: evidence citation, identity vs reputation comparison, "what will others see", "how will I know", and the Ex Two review of this plan.</li><li>Whether Section Commanders currently facilitate this round is the single most important validation question (10, SC-4).</li><li>Whether this LDP, or the Day 2 priority, is the LO 1.3 assessment artefact is unresolved (D1/16, 09 B6).</li><li>Demonstrates FR-5, FR-7, FR-8.</li></ul></div>
+</section>
+
+<!-- 14 OVER TIME -->
+<section class="moment" data-q="4" data-part="2">
+  <div class="p2note"><b>Part 2:</b> function shown, format not decided. Course placement marked where unknown.</div>
+  <div class="head">
+    <div class="where"><span class="pill p2">Part 2</span><span class="pill q">Development over time</span></div>
+    <h2>One priority, carried the whole way.</h2>
+    <p class="lede">Every entry below is something you, your buddy or your Section Commander actually said. Nothing here was filled in to complete a page.</p>
+  </div>
+  <div class="tl">
+    <div><div class="k">Day 1<small>Week 1</small></div><div><b>First evidence about my impact.</b> <span class="small">Identity statement; buddy and Section Commander observation; first insight.</span></div></div>
+    <div><div class="k">Day 2<small>Week 1</small></div><div><b>First deliberate reapplication.</b> <span class="small">One priority tried under pressure; buddy evidence; the loop named.</span></div></div>
+    <div><div class="k">TAD<small>Timetable dependent</small></div><div><b>Repeated experience and lightweight feedback.</b> <span class="small">Everyday questions; at least one checkpoint.</span></div></div>
+    <div><div class="k">Exercise One<small>Timetable dependent</small></div><div><b>Major review and development priority.</b> <span class="small">Section feedback round; LDP built from evidence.</span></div></div>
+    <div><div class="k">TAD<small>Timetable dependent</small></div><div><b>Reapply and gather further evidence.</b> <span class="small">Everyday; at least one checkpoint.</span></div></div>
+    <div><div class="k">Exercise Two<small>Timetable dependent</small></div><div><b>Major review.</b> <span class="small">Did the plan work? Keep, adjust or replace.</span></div></div>
+    <div><div class="k">March-out<small>End of TAD</small></div><div><b>My continuing Lead Self development plan.</b> <span class="small">Identity statement revisited: what evidence shows I've changed? Priority for my next unit.</span></div></div>
+  </div>
+  <div class="grid g2" style="margin-top:28px">
+    <div class="panel stack">
+      <p class="eyebrow">My evidence thread, so far</p>
+      <div class="evid" id="evidAll"></div>
+    </div>
+    <div class="panel sand stack">
+      <p class="eyebrow">March-out · the question you started with</p>
+      <p class="eyebrow" style="color:var(--ink-2)">Then</p><p class="mirror" data-bind="identity"></p>
+      <p class="eyebrow" style="color:var(--ink-2);margin-top:6px">Now · what evidence shows I've changed?</p>
+      <div class="field"><textarea data-key="mo" rows="3" aria-label="March-out reflection"></textarea></div>
+    </div>
+  </div>
+  <div class="sc"><p class="eyebrow">Section Commander at this moment</p><ul><li>Before march-out, one question: "What evidence shows you've changed?" And one observation of their own.</li><li>No handover is assumed. If one is agreed with the next unit (D9/15), the recruit's priority goes with them.</li></ul></div>
+  <div class="rv"><p class="eyebrow">Reviewer notes</p><div class="tags"><span class="tag tt">Timetable dependent</span><span class="tag set">Settled: evidence thread end to end</span><span class="tag prov">Provisional: march-out content</span></div>
+    <ul><li>Phase 2 03 §6. All placements after Day 2 are TIMETABLE DEPENDENT and shown in order only.</li><li>Values commitment and section commitment are also revisited at march-out (01 M3, M4); not shown here to keep the screen small.</li><li>Onward handover to the next unit is an owner decision (D9/15).</li></ul></div>
+</section>
+
+</main>
+
+<footer class="nav">
+  <div class="nav-in">
+    <button id="prev">Back</button>
+    <span class="count" id="count"></span>
+    <select id="jump" aria-label="Jump to a moment"></select>
+    <button id="next" class="next">Next</button>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var moments=[].slice.call(document.querySelectorAll('.moment'));
+  var names=["Cover","Why this matters","Lead Self expectations","Who am I?","Experience","Feedback","One priority","Pressure","Reapply","The loop","Handover","Everyday","Checkpoint","Exercise One","Over time"];
+  var ex={
+    identity:"stays calm when it goes wrong, pulls their weight, and says so when they don't know.",
+    values:"Say it straight when something's not right, even if it's a mate. Turn up ready.",
+    fb_dev:"When we started planning you grabbed the pen and had the whole timetable written before anyone else had said anything. Two people stopped offering ideas.",
+    fb_str:"At the end you went round and checked everyone knew their timings. Nobody had to ask twice.",
+    fb_sc:"You were first to a decision, every time. Good under time pressure. It also meant the quietest two never spoke.",
+    gap:"I think I'm calm and steady. They saw me take over.",
+    p_when:"we're planning as a section",
+    p_will:"ask two others what they think before I give my idea",
+    p_bs:"Get others' input into decisions.",
+    signs:"I go quiet, stop looking up, and start doing it all myself.",
+    ev_d2:"You asked two people at the start. When the timing changed halfway you went straight back to taking over, for about a minute, then caught it.",
+    debrief:"Plan changed at the ten-minute mark. I felt it in my chest and went quiet. Breathing helped. I asked at the start but not after the change. Next time: ask again when the plan changes.",
+    cp_what:"Kit inspection prep, Thursday. Asked before I started moving people's gear.",
+    cp_obs:"Buddy: 'You asked. Then you went with your plan anyway, but it was quicker.'",
+    cp_next:"Keep. Ask, then actually use one of the answers.",
+    ex_self:"Harbour drill, night two. Asked the section before setting the stag list. When we got bumped I gave orders without checking. Section moved fast but two people were in the wrong spot.",
+    ex_peer:"3 of 7: takes over when it gets fast. 2 of 7: doesn't say when they're unsure.",
+    ex_peer2:"5 of 7: keeps everyone informed; checks people are good.",
+    ex_sc:"Under pressure you default to doing it yourself. It's effective and it leaves people behind. Both things are true.",
+    ex_gap:"I'm steadier than I thought when it's calm. Under pressure I'm still the person who takes over. The gap is smaller but it's in the same place.",
+    ldp_kss:"Keep: asking first when it's calm. Stop: giving orders without a check when we're bumped. Start: one question before I move anyone, even at speed.",
+    ldp_see:"Me asking 'what have you got?' before I give a direction, even when it's fast.",
+    ldp_know:"Fewer people in the wrong place after a change. Peers stop saying 'takes over' at Exercise Two.",
+    ldp_str:"Keeping people informed. Use it on purpose when the plan changes, not just when it's calm.",
+    mo:"Exercise Two: one of seven said 'takes over'. Section Commander said I checked before every move on the last night. I still feel it in my chest. I just don't act on it as fast."
+  };
+  var S={};
+  try{S=JSON.parse(localStorage.getItem('ls-proto')||'{}')}catch(e){S={}}
+  function get(k){return (k in S)?S[k]:(ex[k]||'')}
+  function save(){try{localStorage.setItem('ls-proto',JSON.stringify(S))}catch(e){}}
+  // inputs
+  function grow(el){if(el.tagName==='TEXTAREA'){el.style.height='auto';el.style.height=(el.scrollHeight+4)+'px'}}
+  var fields=[].slice.call(document.querySelectorAll('[data-key]'));
+  fields.forEach(function(el){
+    el.value=get(el.getAttribute('data-key'));
+    el.addEventListener('input',function(){S[el.getAttribute('data-key')]=el.value;save();bind();grow(el)});
+  });
+  function growAll(){fields.forEach(grow)}
+  // chips
+  function chipGroup(sel,attr,key,def){
+    var btns=[].slice.call(document.querySelectorAll(sel+' [data-'+attr+']'));
+    if(!(key in S))S[key]=def;
+    function paint(){btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-'+attr)===S[key]))})}
+    btns.forEach(function(b){b.addEventListener('click',function(){S[key]=b.getAttribute('data-'+attr);save();paint();bind()})});
+    paint();
+  }
+  chipGroup('#vaChips','va','va','Support Others');
+  chipGroup('#toolChips','tool','tool','Tactical breathing');
+  chipGroup('#seen','seen','seen','Partly');
+  chipGroup('#exdid','did','did','Partly');
+  function priority(){var w=get('p_when'),i=get('p_will');return (w||i)?('When '+w+', I will '+i+'.'):''}
+  function bind(){
+    [].slice.call(document.querySelectorAll('[data-bind]')).forEach(function(el){
+      var k=el.getAttribute('data-bind'),v;
+      if(k==='priority')v=priority();
+      else if(k==='va'||k==='tool'||k==='seen'||k==='did')v=S[k]||'';
+      else v=get(k);
+      el.textContent=v;
+    });
+    [].slice.call(document.querySelectorAll('.va')).forEach(function(v){v.setAttribute('data-pick',v.getAttribute('data-va')===S.va?'1':'0')});
+    var ev=[
+      ['Day 1 · me',get('identity')],['Day 1 · buddy',get('fb_dev')],['Day 1 · Sect Comd',get('fb_sc')],
+      ['Day 2 · buddy',(S.seen||'')+'. '+get('ev_d2')],['Day 2 · me',get('debrief')],
+      ['Checkpoint',get('cp_obs')],['Ex One · peers',get('ex_peer')],['Ex One · Sect Comd',get('ex_sc')]
+    ];
+    var html=ev.map(function(r){return '<div><b>'+esc(r[0])+'</b><span>'+esc(r[1])+'</span></div>'}).join('');
+    document.getElementById('evidAll').innerHTML=html;
+    document.getElementById('evidLDP').innerHTML=ev.slice(1,8).map(function(r){return '<div><b style="color:#C9D3B0">'+esc(r[0])+'</b><span>'+esc(r[1])+'</span></div>'}).join('');
+  }
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+  // nav
+  var i=0, jump=document.getElementById('jump');
+  names.forEach(function(n,k){var o=document.createElement('option');o.value=k;o.textContent=(k+1)+'. '+n;jump.appendChild(o)});
+  function show(n){
+    i=Math.max(0,Math.min(moments.length-1,n));
+    moments.forEach(function(m,k){m.classList.toggle('on',k===i)});
+    var q=+moments[i].getAttribute('data-q');
+    [].slice.call(document.querySelectorAll('.phase')).forEach(function(p){var k=+p.getAttribute('data-ph');p.classList.toggle('on',k===q);p.classList.toggle('done',k<q)});
+    document.getElementById('count').textContent=(i+1)+' / '+moments.length;
+    jump.value=i;
+    document.getElementById('prev').disabled=i===0;
+    document.getElementById('next').textContent=i===moments.length-1?'Start again':'Next';
+    window.scrollTo(0,0);
+    try{location.hash='m'+(i+1)}catch(e){}
+    growAll();
+  }
+  document.getElementById('prev').onclick=function(){show(i-1)};
+  document.getElementById('next').onclick=function(){show(i===moments.length-1?0:i+1)};
+  jump.onchange=function(){show(+jump.value)};
+  document.addEventListener('keydown',function(e){
+    if(/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;
+    if(e.key==='ArrowRight')show(i+1);if(e.key==='ArrowLeft')show(i-1);
+  });
+  function tog(id,cls){var b=document.getElementById(id);b.onclick=function(){var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',String(on));document.body.classList.toggle(cls,on)}}
+  tog('togSC','sc-on');tog('togRV','rv-on');
+  var m=/m(\d+)/.exec(location.hash||'');
+  bind();show(m?+m[1]-1:0);
+})();
+</script>
+</body>
+</html>
