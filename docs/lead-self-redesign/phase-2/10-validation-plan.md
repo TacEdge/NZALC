@@ -38,10 +38,11 @@ Also gather the facts needed to choose a Part 2 format (05 §4). That decision i
 
 | Item | Guidance |
 |---|---|
-| **Who** | About 3–5 recent recruits (recently completed TAD, or late in the course) and 3–5 current or recent TAD Section Commanders |
+| **Who** | About 3–5 recent recruits (recently completed TAD, or late in the course) and 3–5 current or recent TAD Section Commanders. Three of each is enough to proceed; don't hold the project for a larger sample |
+| **Notes** | Capture answers as close to verbatim as practical |
 | **How** | Ten-minute informal conversations, one to one. Not focus groups: peers can shape each other's answers, and recruits may not speak freely about Section Commanders in a group |
 | **Who asks** | Someone who is **not** the interviewee's Section Commander or in their chain of command, where possible |
-| **Order** | Ask about what actually happened **before** describing anything about the redesign. Show the proposed Section Commander behaviours only at the end of the Section Commander conversation (SC-7) |
+| **Order** | Ask about what actually happened. **Do not show recruits the proposed architecture at all.** With Section Commanders, show only the five working-minimum behaviours, and only at SC-7. The aim is to discover current operating reality, not to get approval for the concept |
 | **Wording** | Ask about specific past events ("the last time…", "what happened when…"), not opinions about hypotheticals. Avoid naming the answer in the question |
 | **Approval** | With the appropriate chain-of-command agreement. No names recorded against answers |
 | **Optional extra** | Look at 3–5 used workbooks from a recent intake: which pages are filled in, and where completion stops |
@@ -57,7 +58,7 @@ Follow-up prompts are in italics. Use them only if the answer is thin.
 | # | Question | Tests |
 |---|---|---|
 | **R-1** | "Think back to the Lead Self days in week one. What happened to the workbook after those two days?" *Where did it end up? When did you last see it?* | AS-1, AS-3 |
-| **R-2** | "Was there ever a time after those days that you opened it? Tell me about that." *What made you open it? If never, what would have needed to happen?* | AS-1 |
+| **R-2** | "Was there ever a time after those days that you opened it? Tell me about that." *If yes:* "What made you open it again?" *If no:* "Why didn't you?" *Only after they have answered:* "What, if anything, would have made it useful enough to reopen?" | AS-1 |
 | **R-3** | "During training, was there any time you thought about how you were coming across to your section, or how you could do better? What prompted that?" *Did anyone else prompt it? What did you do with the thought?* | AS-1, AS-10 |
 | **R-4** | "What did you actually carry on you, or have easy access to, during a normal training day? And in the field?" *Notebook? Anything in pockets? When could you get to your locker?* | AS-3, AS-2 |
 | **R-5** | "Was there a part of the day when you had a few minutes to yourself, or with your section, that wasn't taken up?" *What usually happened then?* | AS-2, AS-9 |
@@ -77,6 +78,15 @@ Follow-up prompts are in italics. Use them only if the answer is thin.
 | **SC-6** | "In a normal day, when are the moments you'd naturally have a quick word with an individual recruit, or with the section?" *End of day? After AARs? During admin time?* | AS-9 |
 | **SC-7** | *(Now show the five working-minimum behaviours, 04 §2.)* "If you were asked to do these, which would you already be doing anyway? Which, if any, would feel like extra admin?" *What would make any of them unrealistic?* | **AS-6, AS-8, ST-4** |
 | **SC-8** | "Do recruits treat feedback from you differently from being assessed by you? How can you tell?" *Do they open up or close down?* | AS-5 |
+| **SC-9** | "If you wanted a recruit to work on one behaviour for the next week, how would you currently get them to remember it, and how would you know whether they'd improved?" | AS-6, AS-8, AS-3; reveals any existing informal development system |
+
+### 4.3 What to listen for (beyond the literal answers)
+
+| Listen for | Examples | Why it matters |
+|---|---|---|
+| **What already happens naturally** | "After an activity I'll grab someone for 30 seconds." "We talk about that during section admin." "After an exercise we already sit down as a section." | Lead Self should attach to existing behaviours rather than manufacture new events (DR-4, 04 §2.1). Record every such moment precisely |
+| **Feedback vs assessment** (R-7, SC-8) | Recruits who "say what the Corporal wants to hear"; Corporals who notice recruits close down | If recruits censor themselves whenever a Corporal is involved, the **buddy** may need to carry most of the developmental loop, with the Section Commander coaching and giving higher-level observations (04 §5.1, 09 B6) |
+| **What recruits actually carry** (R-4, SC-9) | Notebook, field notebook, orders book, phone at certain times, something kept in accommodation, nothing | The answer may settle the Part 2 format. Prefer something already embedded in recruit behaviour to a new artefact for holding the one active priority (05 §4) |
 
 **Deliberately not asked:** "Would you like a pocket booklet?", "Is this redesign better?", or any question that describes the proposed format.
 
